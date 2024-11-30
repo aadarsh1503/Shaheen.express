@@ -21,11 +21,13 @@ const Navbar = () => {
         <div className="container mx-auto flex max-w-6xl items-center justify-between  px-6">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
+            <a href="/">
             <img
               src={i1} // Replace with your logo
               alt="Logo"
               className="h-22 w-44"
             />
+            </a>
           </div>
 
           {/* Menu Items */}
@@ -35,9 +37,9 @@ const Navbar = () => {
             <Link to="/#clients" className="hover:text-gray-200">Clients</Link>
             <Link to="/#partners" className="hover:text-gray-200">Partners</Link>
             <Link to="/faq" className="hover:text-gray-200">FAQ</Link>
-            <Link to="/#privacy-policy" className="hover:text-gray-200">Privacy Policy</Link>
-            <Link to="/#terms" className="hover:text-gray-200">T&C</Link>
-            <Link to="/#tracking" className="hover:text-gray-200">Tracking</Link>
+            <Link to="/privacy-policy" className="hover:text-gray-200">Privacy Policy</Link>
+            <Link to="/T&C" className="hover:text-gray-200">T&C</Link>
+            <Link to="/tracking-Form" className="hover:text-gray-200">Tracking</Link>
             <Link to="/#careers" className="hover:text-gray-200">Careers</Link>
 
             {/* Email Section */}

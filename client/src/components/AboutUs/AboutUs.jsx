@@ -1,9 +1,11 @@
 import React from 'react'
 
+import EmailSection from '../Hero/EmailSection'
+
 const AboutUs = () => {
   return (
     <div>
-          <div className="bg-dgreen font-poppins text-white py-10 px-5">
+          <div className="bg-dgreen font-sans text-white py-10 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h1 className="lg:text-7xl text-2xl font-poppins font-bold mb-2">About Us</h1>
@@ -66,6 +68,92 @@ const AboutUs = () => {
 </section>
 
 
+<section className="flex flex-col max-w-6xl  mt-10 mx-auto  md:flex-row items-center justify-center gap-8 bg-white">
+  {/* Left Side Image */}
+  <div className="flex-shrink-0 w-full md:w-[700px]">
+    <img
+      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fregular-storage.a500bf53.jpg&w=1920&q=75"
+      alt="Pan Indonesia coverage"
+      className="rounded-lg shadow-lg"
+    />
+  </div>
+
+  {/* Right Side Text */}
+  <div className="w-full md:w-1/2 text-center md:text-left">
+    <h2 className="text-2xl md:text-3xl font-bold text-dgreen">
+    Regular storage
+    </h2>
+    <p className="text-gray-600 mt-2">
+    All items not requiring any special care can be stored here
+    </p>
+  </div>
+</section>
+
+<section className="flex flex-col max-w-6xl mt-10 mx-auto md:flex-row-reverse items-center justify-center gap-8 bg-white">
+  {/* Right Side Image */}
+  <div className="flex-shrink-0 w-full md:w-[700px]">
+    <img
+      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhigh-value-storage.3a6d1cc8.png&w=1200&q=75"
+      alt="Pan Indonesia coverage"
+      className="rounded-lg shadow-lg"
+    />
+  </div>
+
+  {/* Left Side Text */}
+  <div className="w-full md:w-1/2 font-poppins text-center md:text-left">
+    <h2 className="text-2xl md:text-3xl text-right font-bold text-dgreen">
+    High value storage
+    </h2>
+    <p className="text-gray-600 mt-2 text-right">
+    High value storage to store highly valuable items with 24X7 security
+    </p>
+  </div>
+</section>
+
+
+<section className="flex flex-col max-w-6xl  mt-10 mx-auto  md:flex-row items-center justify-center gap-8 bg-white">
+  {/* Left Side Image */}
+  <div className="flex-shrink-0 w-full md:w-[700px]">
+    <img
+      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcold-storage.06ae0f22.png&w=1200&q=75"
+      alt="Pan Indonesia coverage"
+      className="rounded-lg shadow-lg"
+    />
+  </div>
+
+  {/* Right Side Text */}
+  <div className="w-full md:w-1/2 text-center md:text-left">
+    <h2 className="text-2xl md:text-3xl font-bold text-dgreen">
+    Cold storage
+    </h2>
+    <p className="text-gray-600 mt-2">
+    Cold storage to low shelf value items like dairy, pharmaceutical, beauty products, etc.
+    </p>
+  </div>
+</section>
+
+
+<section className="flex flex-col max-w-6xl mt-10 mb-8 mx-auto md:flex-row-reverse items-center justify-center gap-8 bg-white">
+  {/* Right Side Image */}
+  <div className="flex-shrink-0 w-full md:w-[700px]">
+    <img
+      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpallet-storage.4fd36ba8.png&w=1200&q=75"
+      alt="Pan Indonesia coverage"
+      className="rounded-lg shadow-lg"
+    />
+  </div>
+
+  {/* Left Side Text */}
+  <div className="w-full md:w-1/2 font-poppins text-center  md:text-left">
+    <h2 className="text-2xl md:text-3xl text-right font-bold text-dgreen">
+    Pallet storage
+    </h2>
+    <p className="text-gray-600 font-sans mt-2 text-right">
+    Pallet storage to stack bulky products in dedicated areas
+    </p>
+  </div>
+</section>
+<EmailSection />
     </div>
   )
 }

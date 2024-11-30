@@ -1,10 +1,10 @@
 import React from "react";
-import i3 from "./i3.png"
-import i4 from "./i4.png"
-import i5 from "./i5.png"
-import i6 from "./i6.png"
-import i7 from "./i7.png"
-import i8 from "./i8.png"
+import i3 from "./i3.svg"
+import i4 from "./i4.svg"
+import i5 from "./i5.svg"
+import i6 from "./i6.svg"
+import i7 from "./i7.svg"
+import i8 from "./i8.svg"
 
 const LogisticsSection = () => {
   return (
@@ -25,7 +25,7 @@ const LogisticsSection = () => {
         {/* Feature 1 */}
         <div className="text-center">
           <img
-            src={i4}
+            src={i3}
             alt="Marketplace Integration"
             className="mx-auto w-16 h-16"
           />
@@ -37,7 +37,7 @@ const LogisticsSection = () => {
         {/* Feature 2 */}
         <div className="text-center">
           <img
-            src={i3}
+            src={i4}
             alt="99.99% Stock Accuracy"
             className="mx-auto w-16 h-16"
           />
@@ -49,7 +49,7 @@ const LogisticsSection = () => {
         {/* Feature 3 */}
         <div className="text-center">
           <img
-            src={i5}
+            src={i6}
             alt="Real-Time Dashboard"
             className="mx-auto w-16 h-16"
           />
@@ -61,7 +61,7 @@ const LogisticsSection = () => {
         {/* Feature 4 */}
         <div className="text-center">
           <img
-            src={i6}
+            src={i5}
             alt="Same Day Fulfillment"
             className="mx-auto w-16 h-16"
           />

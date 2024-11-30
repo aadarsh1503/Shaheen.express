@@ -19,9 +19,9 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
         {/* Column 1 */}
         <div>
-          <h3 className="text-gray-800 font-bold uppercase mb-4">GOTO LOGISTICS</h3>
+          <h3 className="text-gray-800 font-bold uppercase mb-4">SHAHEEN EXPRESS</h3>
           <p>
-            GTL is the key to your seamless logistics experience and helps you
+            Shaheen Express is the key to your seamless logistics experience and helps you
             to focus on business growth.
           </p>
         </div>
@@ -60,17 +60,17 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#privacy-policy" className="text-dgreen hover:underline">
+              <a href="/privacy-policy" className="text-dgreen hover:underline">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#terms" className="text-dgreen hover:underline">
+              <a href="/t&c" className="text-dgreen hover:underline">
                 Terms and Conditions
               </a>
             </li>
             <li>
-              <a href="#tracking" className="text-dgreen hover:underline">
+              <a href="/tracking-Form" className="text-dgreen hover:underline">
                 Tracking
               </a>
             </li>
@@ -123,7 +123,7 @@ const Footer = () => {
         <img
           src={i1} // Replace with your logo
           alt="Logo"
-          className="mx-auto mb-4"
+          className="mx-auto w-32 h-20 mb-4"
         />
         <p>
           Copyright © 2023 GOTO LOGISTICS (PT. Paket Anak Bangsa, PT. Swift Logistics

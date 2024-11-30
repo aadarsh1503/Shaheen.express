@@ -1,6 +1,6 @@
 import React from "react";
-import i1 from "./i1.png"
-import i2 from "./i2.png"
+import i1 from "./i1.svg"
+import i2 from "./i2.svg"
 
 const HomeService = () => {
   return (
