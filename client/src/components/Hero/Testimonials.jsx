@@ -79,10 +79,10 @@ const Testimonials = () => {
                   className={`object-cover w-full h-full ${index === 1 ? "scale-110" : "scale-100"}`}
                 />
               </div>
-              <div className="text-5xl text-lightblue mt-4 lg:mt-10 ml-0 lg:-ml-56">“</div>
-              <p className="text-lightblue font-bold mb-1">{testimonial.name}</p>
+              <div className="text-5xl text-dgreen mt-4 lg:mt-10 ml-0 lg:-ml-56">“</div>
+              <p className="text-dgreen font-bold mb-1">{testimonial.name}</p>
               <p className="text-gray-600 max-w-7xl text-center">{testimonial.text}</p>
-              <div className="text-5xl text-lightblue ml-0 lg:ml-56 mt-2">”</div>
+              <div className="text-5xl text-dgreen ml-0 lg:ml-56 mt-2">”</div>
             </div>
           ))}
         </div>
@@ -112,7 +112,7 @@ const Testimonials = () => {
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="text-lightblue font-bold mb-1">{testimonial.name}</div>
+            <div className="text-dgreen font-bold mb-1">{testimonial.name}</div>
             <p className="text-gray-600 max-w-7xl text-center">{testimonial.text}</p>
           </div>
         ))}

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        dgreen: '#14922C',
+        dgreen: '#EC2027',
         lgray:'#0000007A', // Custom green color
       },
       fontSize: {

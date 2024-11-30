@@ -14,7 +14,7 @@ const EmailSection = () => {
       <div className="flex flex-col md:flex-row max-w-6xl mx-auto justify-between items-center p-8 rounded-md">
         {/* Left Side */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className="text-xl md:text-2xl font-bold text-green-700">
+          <h2 className="text-xl md:text-2xl font-bold text-dgreen">
             Ready to Grow With Us?
           </h2>
           <p className="text-gray-500 mt-2">
@@ -33,7 +33,7 @@ const EmailSection = () => {
                   className="h-12 w-12"
                 />
               </div>
-              <span className="text-green-700 font-semibold">EMAIL</span>
+              <span className="text-dgreen font-semibold">EMAIL</span>
             </div>
 
             {/* Dropdown */}

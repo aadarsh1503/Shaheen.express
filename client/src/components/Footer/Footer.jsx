@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import i1 from "./i1.png"
 
 const Footer = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -39,42 +40,42 @@ const Footer = () => {
           <h3 className="text-gray-800 font-bold uppercase mb-4">INFORMATION</h3>
           <ul className="space-y-2">
             <li>
-              <a href="/aboutUs" className="text-green-600 hover:underline">
+              <a href="/aboutUs" className="text-dgreen hover:underline">
                 About Us
               </a>
             </li>
             <li>
-              <a href="/#services" className="text-green-600 hover:underline">
+              <a href="/#services" className="text-dgreen hover:underline">
                 Services
               </a>
             </li>
             <li>
-              <a href="/#why-us" className="text-green-600 hover:underline">
+              <a href="/#why-us" className="text-dgreen hover:underline">
                 Why Us
               </a>
             </li>
             <li>
-              <a href="/faq" className="text-green-600 hover:underline">
+              <a href="/faq" className="text-dgreen hover:underline">
                 FAQ
               </a>
             </li>
             <li>
-              <a href="#privacy-policy" className="text-green-600 hover:underline">
+              <a href="#privacy-policy" className="text-dgreen hover:underline">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#terms" className="text-green-600 hover:underline">
+              <a href="#terms" className="text-dgreen hover:underline">
                 Terms and Conditions
               </a>
             </li>
             <li>
-              <a href="#tracking" className="text-green-600 hover:underline">
+              <a href="#tracking" className="text-dgreen hover:underline">
                 Tracking
               </a>
             </li>
             <li>
-              <a href="#careers" className="text-green-600 hover:underline">
+              <a href="#careers" className="text-dgreen hover:underline">
                 Careers
               </a>
             </li>
@@ -94,7 +95,7 @@ const Footer = () => {
                   className="h-8 w-8"
                 />
         </div>
-        <span className="text-sm font-semibold text-green-600">Email</span>
+        <span className="text-sm font-semibold text-dgreen">Email</span>
       </div>
 
       {/* Dropdown Menu */}
@@ -120,7 +121,7 @@ const Footer = () => {
       {/* Footer Bottom Section */}
       <div className="border-t border-gray-300 mt-10 pt-6 text-center">
         <img
-          src="https://via.placeholder.com/120x40" // Replace with your logo
+          src={i1} // Replace with your logo
           alt="Logo"
           className="mx-auto mb-4"
         />

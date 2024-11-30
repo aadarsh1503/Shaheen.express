@@ -3,17 +3,17 @@ import EmailSection from '../Hero/EmailSection';
 
 const FAQ = () => {
   return (
-    <div className='bg-white'> 
+    <div className='bg-white font-poppins'> 
     <div className="bg-dgreen text-white py-10 px-5">
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
-        <h1 className="text-4xl font-bold mb-6">FAQ</h1>
-        <p className="text-lg font-medium mb-12">Frequently Asked Questions</p>
+        <h1 className="text-2xl lg:text-7xl font-bold mb-6">FAQ</h1>
+        <p className="text-base font-medium mb-12">Frequently Asked Questions</p>
         </div>
         </div>
         {/* FAQ Content */}
         <div className="bg-white font-poppins max-w-4xl mx-auto text-black p-6 rounded-md ">
-          <h2 className="text-2xl  font-bold text-green-600 mb-6">General</h2>
+          <h2 className="text-2xl  font-bold text-dgreen mb-6">General</h2>
 
           {/* FAQ Items */}
           <div className="space-y-6">
@@ -73,7 +73,7 @@ const FAQ = () => {
           </div>
         </div>
         <div className="bg-white font-poppins max-w-4xl mx-auto text-black p-6 rounded-md ">
-          <h2 className="text-2xl  font-bold text-green-600 mb-6">Warehouse Service</h2>
+          <h2 className="text-2xl  font-bold text-dgreen mb-6">Warehouse Service</h2>
 
           {/* FAQ Items */}
           <div className="space-y-6">
@@ -113,7 +113,7 @@ const FAQ = () => {
           </div>
         </div>
         <div className="bg-white font-poppins max-w-4xl mx-auto text-black p-6 rounded-md ">
-          <h2 className="text-2xl  font-bold text-green-600 mb-6">Warehouse Service</h2>
+          <h2 className="text-2xl  font-bold text-dgreen mb-6">Delivery Service</h2>
 
           {/* FAQ Items */}
           <div className="space-y-6">

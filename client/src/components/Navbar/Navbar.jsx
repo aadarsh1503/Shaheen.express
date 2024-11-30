@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link for React Router navigation
+import i1 from "./i1.png"
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -17,13 +18,13 @@ const Navbar = () => {
   return (
     <div className="bg-dgreen py-10">
       <nav className="text-white bg-dgreen fixed top-0 shadow-lg w-full z-50">
-        <div className="container mx-auto flex max-w-5xl items-center justify-between py-4 px-6">
+        <div className="container mx-auto flex max-w-6xl items-center justify-between  px-6">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
             <img
-              src="https://via.placeholder.com/100x40" // Replace with your logo
+              src={i1} // Replace with your logo
               alt="Logo"
-              className="h-10"
+              className="h-22 w-44"
             />
           </div>
 

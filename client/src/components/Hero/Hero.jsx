@@ -7,7 +7,7 @@ import EmailSection from './EmailSection';
 const Hero = () => {
   return (
     <>
-    <div className='bg-dgreen '>
+    <div className='bg-dgreen font-poppins '>
     <section className="flex flex-col max-w-7xl mx-auto lg:flex-row items-center justify-between px-8 lg:px-20 py-16">
       {/* Left Side Content */}
       
@@ -17,7 +17,7 @@ const Hero = () => {
           Seamless<br />
           Logistics<br /> Experience
         </h1>
-        <button className="bg-lime-400 text-green-900 font-semibold m text-lg py-6 px-12 rounded shadow-lg hover:bg-lime-300 transition duration-300">
+        <button className="bg-white text-dgreen font-semibold text-lg py-6 px-12 rounded shadow-lg hover:bg-dgreen hover:text-white transition duration-300 hover:outline hover:outline-2 hover:outline-white">
           LEARN MORE
         </button>
       </div>

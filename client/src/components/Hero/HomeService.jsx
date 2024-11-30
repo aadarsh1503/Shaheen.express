@@ -1,4 +1,6 @@
 import React from "react";
+import i1 from "./i1.png"
+import i2 from "./i2.png"
 
 const HomeService = () => {
   return (
@@ -16,9 +18,9 @@ const HomeService = () => {
         {/* Fulfillment Card */}
         <div className="text-center max-w-2xl">
           <img
-            src="https://gtl.id/icons/fulfillment.svg"
+            src={i2}
             alt="Fulfillment"
-            className="mx-auto w-20 h-20"
+            className="mx-auto w-16 h-16"
           />
           <h3 className="mt-6 text-lg font-semibold text-gray-800">
             Fulfillment
@@ -31,9 +33,9 @@ const HomeService = () => {
         {/* Delivery Card */}
         <div className="text-center max-w-2xl">
           <img
-            src="https://gtl.id/icons/delivery.svg"
+            src={i1}
             alt="Delivery"
-            className="mx-auto w-20 h-20"
+            className="mx-auto w-16 h-16"
           />
           <h3 className="mt-6 text-lg font-semibold text-gray-800">
             Delivery
