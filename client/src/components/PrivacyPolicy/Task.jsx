@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import EmailSection from '../Hero/EmailSection';
+import { Link } from "react-router-dom";
 
 // Collapsible Section Component
 const CollapsibleSection = ({ title, description }) => {
@@ -11,7 +12,9 @@ const CollapsibleSection = ({ title, description }) => {
 
   return (
     <div className="bg-DarkBlue">
+      
       <div className="font-roboto lg:max-w-5xl bg-white mx-auto mb-4">
+        
         {/* Header */}
         <div
           className="flex bg-YellowLight lg:px-4 outline-white border outline-1 lg:w-[1032px] lg:py-2 cursor-pointer items-center"
@@ -23,7 +26,7 @@ const CollapsibleSection = ({ title, description }) => {
         {/* Content */}
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'h-full' : 'max-h-0'
+            isOpen ? 'h-full' : 'h-1'
           }`}
         >
           {isOpen && (
@@ -37,7 +40,7 @@ const CollapsibleSection = ({ title, description }) => {
   );
 };
 
-const PrivacyPolicy = () => {
+const Task = () => {
   return (
     <div>
       {/* Header Section */}
@@ -48,9 +51,18 @@ const PrivacyPolicy = () => {
           </h1>
         </div>
       </div>
+      <h1 className='max-w-6xl font-poppins lg:w-[1032px] mt-14 mx-auto'>
+        <Link to="/privacy-policy" className="text-dgreen hover:underline">
+        Kebijakan Privasi Terbaru
+        </Link>{" "}
+        -{" "}
+      
+          Riyawat Kebijakan Privasi
 
+      </h1>
+     
       {/* Collapsible Sections */}
-      <div className="py-20 bg-DarkBlue font-roboto">
+      <div className="py-12 bg-DarkBlue font-roboto">
         <CollapsibleSection
           title="PENGANTAR"
           description={
@@ -370,16 +382,14 @@ const PrivacyPolicy = () => {
             </>
           }
         />
-        <h1 className='lg:w-[1032px] font-poppins text-gray-600 lg:ml-48 mb-4  lg:py-2 '>Last Update: 07/11/2023</h1>
+        
           <CollapsibleSection
-          title="RIYAWAT KEBIJAKAN PRIVASI"
+          title="Riwayat Kebijakan Privasi"
           description={
             <>
-            <a href='/privacy'>
-              <li className=" mt-2 hover:text-dgreen underline font-semibold">
+              <li className=" mt-2 font-semibold">
               Kebijakan Privasi - 01/09/2021
               </li>
-              </a>
               <br />
               
               <br />
@@ -394,4 +404,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default  Task;

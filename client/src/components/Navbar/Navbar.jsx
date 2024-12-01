@@ -40,7 +40,15 @@ const Navbar = () => {
             <Link to="/privacy-policy" className="hover:text-gray-200">Privacy Policy</Link>
             <Link to="/T&C" className="hover:text-gray-200">T&C</Link>
             <Link to="/tracking-Form" className="hover:text-gray-200">Tracking</Link>
-            <Link to="/#careers" className="hover:text-gray-200">Careers</Link>
+            
+            <a 
+  href="https://www.talentportal.bh/#pills-profile" 
+  target="_blank" 
+  class="flex items-center space-x-2 text-darkred hover:text-lightgreen font-semibold hover:underline"
+>
+  <span class="hover:text-gray-200">Careers</span>
+</a>
+
 
             {/* Email Section */}
             <div className="relative">

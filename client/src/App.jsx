@@ -8,6 +8,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TANDC from './components/TANDC/TANDC';
 import TrackingForm from './components/TrackingForm/TrackingForm';
+import Task from './components/PrivacyPolicy/Task';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -40,6 +41,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/t&c" element={<TANDC />} />
           <Route path="/tracking-Form" element={<TrackingForm />} />
+          <Route path="/privacy" element={<Task />} />
           
         </Routes>
         <Footer />

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import i1 from "./i1.jpg"
+import i2 from "./i2.jpg"
+import i3 from "./i3.jpg"
+import i4 from "./i4.jpg"
+import i6 from "./i6.jpg"
 
 const EmailSection = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const topics = [
@@ -8,6 +14,19 @@ const EmailSection = () => {
     { label: "Seller Care", email: "sellercare@example.com" },
     { label: "Business enquiries", email: "business@example.com" },
   ];
+
+  const images = [
+   i1,
+   i2,
+   i3,
+   i4,
+   i6,
+
+  ];
+
+  const handleDotClick = (index) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <div className="bg-[#f0f8ff] lg:h-[500px]">
@@ -26,7 +45,7 @@ const EmailSection = () => {
               className="flex items-center space-x-2 cursor-pointer"
               onClick={() => setDropdownOpen(!dropdownOpen)}
             >
-              <div className="bg-gray-100  rounded-md ">
+              <div className="bg-gray-100 rounded-md">
                 <img
                   src="https://gtl.id/icon_email.svg"
                   alt="Email Icon"
@@ -54,12 +73,25 @@ const EmailSection = () => {
         </div>
 
         {/* Right Side */}
-        <div className="w-full md:w-1/2 mt-8 md:mt-0">
+        <div className="w-full md:w-1/2 mt-8 md:mt-0 relative">
+          {/* Image Carousel */}
           <img
-            src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage_7.c6d64f8d.jpg&w=1080&q=75"
-            alt="Placeholder"
-            className="rounded-md w-full h-auto"
+            src={images[currentImageIndex]}
+            alt={`Slide ${currentImageIndex + 1}`}
+            className="rounded-md w-full h-auto transition-opacity duration-300"
           />
+          {/* Dots */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full ${
+                  currentImageIndex === index ? "bg-dgreen" : "bg-gray-300"
+                }`}
+                onClick={() => handleDotClick(index)}
+              ></button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
