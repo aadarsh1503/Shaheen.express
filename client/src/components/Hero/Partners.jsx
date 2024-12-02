@@ -1,5 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import a1 from "./PartnersImages/a1.png"
+import a2 from "./PartnersImages/a2.png"
+import a4 from "./PartnersImages/a4.png"
+import a6 from "./PartnersImages/a6.png"
+import a7 from "./PartnersImages/a7.png"
 
 const Partners = () => {
   return (
@@ -18,48 +23,34 @@ const Partners = () => {
         <p className="text-center text-black text-2xl font-semibold mb-8 my-4">
           We Work With The Best
         </p>
-        <div className="grid grid-cols-4 gap-4 justify-items-center items-center max-w-5xl mx-auto">
+        <div className="grid grid-cols-3 gap- justify-items-center items-center max-w-4xl mx-auto">
           {/* Replace the src with your images */}
           <img
-            src="https://gtl.id/partners/gosend.png"
+            src={a1}
             alt="Client 1"
             className="w-[239.33px] h-[200px] object-contain"
           />
           <img
-            src="https://gtl.id/partners/wahana.png"
+            src={a2}
             alt="Client 2"
             className="w-[239.33px] h-[200px] object-contain"
           />
           <img
-            src="https://gtl.id/partners/tiki.png"
+            src={a4}
             alt="Client 3"
             className="w-[239.33px] h-[200px] object-contain"
           />
           <img
-            src="https://gtl.id/partners/jne.png"
+            src={a6}
             alt="Client 4"
-            className="w-[239.33px] h-[200px] object-contain"
+            className="w-[239.33px] lg:ml-64 h-[200px] object-contain"
           />
           <img
-            src="https://gtl.id/partners/jnt.png"
+            src={a7}
             alt="Client 5"
-            className="w-[239.33px] h-[200px] object-contain"
+            className="w-[239.33px] lg:ml-64 h-[200px] object-contain"
           />
-          <img
-            src="https://gtl.id/partners/lion.png"
-            alt="Client 6"
-            className="w-[239.33px] h-[200px] object-contain"
-          />
-          <img
-            src="https://gtl.id/partners/sap.png"
-            alt="Client 7"
-            className="w-[239.33px] h-[200px] object-contain"
-          />
-          <img
-            src="https://gtl.id/partners/ninja.png"
-            alt="Client 8"
-            className="w-[239.33px] h-[200px] object-contain"
-          />
+         
         </div>
       </section>
     </motion.div>
