@@ -57,7 +57,7 @@ const Hero = () => {
             <img
               src={i7} // Replace this with your image URL
               alt="Logistics warehouse"
-              className="rounded-lg lg:h-96 h-full p-2"
+              className="rounded-lg lg:w-full w-96 lg:h-96 h-full "
             />
           </motion.div>
         </motion.section>

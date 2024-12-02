@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import EmailSection from '../Hero/EmailSection';
 import { motion } from "framer-motion";
+import { useEffect } from 'react';
 // Collapsible Section Component
 const CollapsibleSection = ({ title, description }) => {
+  useEffect(() => {
+    // Scroll to the top of the page on mount
+    window.scrollTo(0, 0);
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSection = () => {

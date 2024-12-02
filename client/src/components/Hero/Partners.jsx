@@ -23,7 +23,7 @@ const Partners = () => {
         <p className="text-center text-black text-2xl font-semibold mb-8 my-4">
           We Work With The Best
         </p>
-        <div className="grid grid-cols-3 gap- justify-items-center items-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap- justify-items-center items-center max-w-4xl mx-auto">
           {/* Replace the src with your images */}
           <img
             src={a1}
@@ -43,12 +43,12 @@ const Partners = () => {
           <img
             src={a6}
             alt="Client 4"
-            className="w-[239.33px] lg:ml-64 h-[200px] object-contain"
+            className="w-[239.33px] ml-0 lg:ml-64 h-[200px] object-contain"
           />
           <img
             src={a7}
             alt="Client 5"
-            className="w-[239.33px] lg:ml-64 h-[200px] object-contain"
+            className="w-[239.33px] ml-0 lg:ml-64 h-[200px] object-contain"
           />
          
         </div>

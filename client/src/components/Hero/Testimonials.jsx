@@ -41,9 +41,9 @@ const Testimonials = () => {
   };
 
   const reorderedTestimonials = [
-    testimonials[(current + 0) % testimonials.length],
     testimonials[(current + 1) % testimonials.length],
     testimonials[(current + 2) % testimonials.length],
+    testimonials[(current + 3) % testimonials.length],
   ];
 
   const truncateText = (text, lines = 2) =>
@@ -84,8 +84,8 @@ const Testimonials = () => {
               key={testimonial.id}
               className={`relative transition-all duration-1000 ease-in-out flex flex-col items-center bg-white shadow-md p-6 rounded-lg
                 ${index === 1
-                  ? "scale-110 opacity-100 h-[472px] w-72 mb-9 transform shadow-xl transition-transform"
-                  : "scale-90 opacity-60 w-64 transform transition-transform"}`}
+                  ? "scale-110 opacity-100 h-[420px] w-[332px] mb-9 transform shadow-xl transition-transform"
+                  : "scale-90 opacity-60 w-64 bg-gray-300 transform transition-transform"}`}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}

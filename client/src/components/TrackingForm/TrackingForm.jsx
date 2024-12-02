@@ -1,7 +1,13 @@
 import React from 'react';
 import EmailSection from '../Hero/EmailSection';
+import { useEffect } from 'react';
+
 
 const TrackingForm = () => {
+  useEffect(() => {
+    // Scroll to the top of the page on mount
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
                  <div className="bg-dgreen font-sans text-white py-10 px-5">

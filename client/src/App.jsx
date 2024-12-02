@@ -9,6 +9,7 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TANDC from './components/TANDC/TANDC';
 import TrackingForm from './components/TrackingForm/TrackingForm';
 import Task from './components/PrivacyPolicy/Task';
+import ChatWidget from './components/ChatWidget/ChatWidget';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -33,6 +34,7 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
+      <ChatWidget />
       <ScrollToTop />
       <div>
         <Navbar />

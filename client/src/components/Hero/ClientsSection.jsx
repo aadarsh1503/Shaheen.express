@@ -28,7 +28,7 @@ const ClientsSection = () => {
       <p className="text-center text-black text-2xl mb-4 font-semibold my-4">
         We’re Happy to Grow Together
       </p>
-      <div className="grid grid-cols-5 gap-8 justify-items-center items-center max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 justify-items-center items-center max-w-5xl mx-auto">
         {/* Replace the src with your images */}
         <img
           src={i5}

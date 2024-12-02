@@ -7,13 +7,13 @@ const HomeService = () => {
   return (
     <motion.section
       id="services"
-      className="py-16 bg-white"
+      className="py-16 p-3 bg-white"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
     >
-      <div className="text-center mb-12">
+      <div className="text-center  mb-12">
         <h1 className="text-white mb-4">Hii</h1>
         <h3 className="text-dgreen font-bold uppercase tracking-wide text-sm mb-6">
           S E R V I C E
