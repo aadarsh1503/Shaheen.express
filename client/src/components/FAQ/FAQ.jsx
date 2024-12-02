@@ -1,7 +1,13 @@
 import React from 'react';
 import EmailSection from '../Hero/EmailSection';
+import { useEffect } from 'react';
 
 const FAQ = () => {
+  useEffect(() => {
+    // Scroll to the top of the page on mount
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className='bg-white font-poppins'> 
     <div className="bg-dgreen text-white py-10 px-5">
@@ -20,7 +26,7 @@ const FAQ = () => {
             {/* Item 1 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-                What kind of products that GTL could handle?
+                What kind of products that Shaheen Express could handle?
               </h3>
               <p className="text-sm text-lgray">
                 We welcome all types of products, both in warehouse and delivery
@@ -31,16 +37,16 @@ const FAQ = () => {
             {/* Item 2 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-                How can I get the pricing for GTL service?
+                How can I get the pricing for Shaheen Expres service?
               </h3>
               <p className="text-sm text-lgray">
                 We are committed to find the best rate tailored to each client’s
                 specific request. Please kindly drop your inquiry details to{' '}
                 <a
-                  href="mailto:sales@gtl.id"
+                  href="mailto:contact@shaheen.express"
                   className="text-green-600 underline"
                 >
-                  sales@gtl.id
+                 <span className='text-dgreen underline'>contact@shaheen.express</span>
                 </a>
                 .
               </p>
@@ -49,10 +55,10 @@ const FAQ = () => {
             {/* Item 3 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-                Once I join GTL, how can I know the updates of my products?
+                Once I join , how can I know the updates of my products?
               </h3>
               <p className="text-sm text-lgray">
-                GTL will provide you with a dashboard, containing detailed
+                Shaheen Express will provide you with a dashboard, containing detailed
                 movement of each items/parcel. It is presented with graphics for
                 your convenience, hence you could quickly gather the information
                 for your business decisions.
@@ -62,7 +68,7 @@ const FAQ = () => {
             {/* Item 4 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-                What is the operational hour of GTL?
+                What is the operational hour of Shaheen Express?
               </h3>
               <p className="text-sm text-lgray">
                 For inbound (receiving goods), we are open from Monday to Friday
@@ -80,7 +86,7 @@ const FAQ = () => {
             {/* Item 1 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-              Where are GTL warehouses located at?
+              Where are Shaheen Express warehouses located at?
               </h3>
               <p className="text-sm text-lgray">
               For now, our main warehouse is located in Cawang, East Jakarta. In the near future, we are expanding our warehouses to main cities all around Indonesia.
@@ -90,10 +96,10 @@ const FAQ = () => {
             {/* Item 2 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-              Does GTL have insurance for damage or lost products?
+              Does Shaheen Express have insurance for damage or lost products?
               </h3>
               <p className="text-sm text-lgray">
-              We provide insurance (optional) for our client. Please kindly contact us to sales@gtl.id for further inquiries regarding insurance premium, T&C, and claiming procedure.
+              We provide insurance (optional) for our client. Please kindly contact us to <span className='text-dgreen underline'>contact@shaheen.express</span> for further inquiries regarding insurance premium, T&C, and claiming procedure.
                 .
               </p>
             </div>
@@ -130,7 +136,7 @@ const FAQ = () => {
             {/* Item 2 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-              Can GTL help me track my parcels?
+              Can Shaheen Express help me track my parcels?
               </h3>
               <p className="text-sm text-lgray">
               Sure, not only our systems have been integrated with 3PL partners, we also have dedicated tracers who will help you track and follow-up your parcels' whereabouts.

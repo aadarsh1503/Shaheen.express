@@ -6,9 +6,9 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const emailOptions = [
-    { label: "Customer Care", email: "customercare@example.com" },
-    { label: "Seller Care", email: "sellercare@example.com" },
-    { label: "Business Enquiries", email: "business@example.com" },
+    { label: "Customer Care", email: "ask@shaheen.express" },
+    { label: "Seller Care", email: "contact@shaheen.express" },
+    { label: "Business Enquiries", email: "info@shaheen.express" },
   ];
 
   const toggleDropdown = () => {

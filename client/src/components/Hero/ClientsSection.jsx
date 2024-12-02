@@ -1,69 +1,82 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import motion from framer-motion
+import i1 from "./images/i1.png";
+import i2 from "./images/i2.png";
+import i3 from "./images/i3.png";
+import i4 from "./images/i4.png";
+import i5 from "./images/i5.png";
+import i6 from "./images/i6.png";
+import i7 from "./images/i7.png";
+import i8 from "./images/i8.png";
+import i9 from "./images/i9.png";
+import i10 from "./images/i10.png";
 
 const ClientsSection = () => {
   return (
-    <section id="clients" className="py-12 items-center">
-        <h1 className="text-white  mb-4">Hii</h1>
+    <motion.section
+      id="clients"
+      className="py-12 items-center"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+    >
+
       <h2 className="text-center text-sm text-dgreen font-bold tracking-wide uppercase">
         Clients
       </h2>
-      <p className="text-center text-black text-2xl mb-10 font-semibold  my-4">
+      <p className="text-center text-black text-2xl mb-4 font-semibold my-4">
         We’re Happy to Grow Together
       </p>
-      <div className="grid grid-cols-5 gap-4 justify-items-center  items-center max-w-5xl mx-auto">
+      <div className="grid grid-cols-5 gap-8 justify-items-center items-center max-w-4xl mx-auto">
         {/* Replace the src with your images */}
         <img
-          src="https://gtl.id/clients/halodoc.png"
+          src={i5}
           alt="Client 1"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/dt-logo.png"
+          src={i2}
           alt="Client 2"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/blibli.png"
+          src={i3}
           alt="Client 3"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/shipper.png"
+          src={i1}
           alt="Client 4"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/burger-king.png"
+          src={i6}
           alt="Client 5"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/unilever.png"
+          src={i7}
           alt="Client 6"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] lg:ml-56 ml-0 h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/wings.png"
+          src={i8}
           alt="Client 7"
-          className="w-[239.33px]  h-[200px] object-contain"
+          className="w-[239.33px] lg:ml-56 ml-0 h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/logitech.png"
+          src={i9}
           alt="Client 8"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] lg:ml-56 ml-0 h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
         <img
-          src="https://gtl.id/clients/PnG.png"
+          src={i10}
           alt="Client 9"
-          className="w-[239.33px] h-[200px] object-contain"
-        />
-        <img
-          src="https://gtl.id/clients/miniso.png"
-          alt="Client 10"
-          className="w-[239.33px] h-[200px] object-contain"
+          className="w-[239.33px] lg:ml-56 ml-0 h-[200px] object-contain hover:scale-105 transform transition-transform duration-300"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

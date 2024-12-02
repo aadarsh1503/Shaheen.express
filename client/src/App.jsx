@@ -15,11 +15,13 @@ function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
+      // Ensure the element with the ID exists
       const element = document.querySelector(hash);
       if (element) {
+        // Scroll to the element with smooth behavior
         window.scrollTo({
-          top: element.offsetTop,
-          behavior: 'smooth',
+          top: element.offsetTop - 80, // Adjust for fixed navbar height if any
+          
         });
       }
     }
@@ -42,7 +44,6 @@ function App() {
           <Route path="/t&c" element={<TANDC />} />
           <Route path="/tracking-Form" element={<TrackingForm />} />
           <Route path="/privacy" element={<Task />} />
-          
         </Routes>
         <Footer />
       </div>

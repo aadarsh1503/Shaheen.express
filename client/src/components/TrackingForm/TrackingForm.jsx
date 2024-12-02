@@ -1,4 +1,5 @@
 import React from 'react';
+import EmailSection from '../Hero/EmailSection';
 
 const TrackingForm = () => {
   return (
@@ -31,6 +32,7 @@ const TrackingForm = () => {
         </form>
       </div>
     </div>
+    <EmailSection />
     </div>
   );
 };
