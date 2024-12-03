@@ -22,8 +22,8 @@ const CollapsibleSection = ({ title, description }) => {
           className="flex bg-YellowLight lg:px-4 outline-white border outline-1 lg:w-[1032px] lg:py-2 cursor-pointer items-center"
           onClick={toggleSection}
         >
-          <div className="text-2xl lg:mr-3">{isOpen ? '-' : '▼'}</div>
-          <div className="font-bold text-dgreen text-xl">{title}</div>
+          <div className="text-2xl lg:mr-4 mr-5">{isOpen ? '-' : '▼'}</div>
+          <div className="font-bold text-dgreen text-sm lg:text-xl">{title}</div>
         </div>
         {/* Content */}
         <div
