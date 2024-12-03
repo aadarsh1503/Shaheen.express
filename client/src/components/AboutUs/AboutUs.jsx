@@ -60,10 +60,10 @@ const AboutUs = () => {
 
   {/* Left Side Text */}
   <div className="w-full md:w-1/2 font-poppins text-center md:text-left">
-    <h2 className="text-2xl md:text-3xl text-right font-bold text-dgreen">
+    <h2 className="text-2xl md:text-3xl text-center lg:text-right font-bold text-dgreen">
     Huge storage capacity
     </h2>
-    <p className="text-gray-600 mt-2 text-right">
+    <p className="text-gray-600 mt-2 text-center lg:text-right">
     Storage capacity ranging from 200K to more than 3 million items per warehouse
     </p>
   </div>
@@ -103,10 +103,10 @@ const AboutUs = () => {
 
   {/* Left Side Text */}
   <div className="w-full md:w-1/2 font-poppins text-center md:text-left">
-    <h2 className="text-2xl md:text-3xl text-right font-bold text-dgreen">
+    <h2 className="text-2xl md:text-3xl text-center lg:text-right font-bold text-dgreen">
     High value storage
     </h2>
-    <p className="text-gray-600 mt-2 text-right">
+    <p className="text-gray-600 mt-2 text-center lg:text-right">
     High value storage to store highly valuable items with 24X7 security
     </p>
   </div>
@@ -147,10 +147,10 @@ const AboutUs = () => {
 
   {/* Left Side Text */}
   <div className="w-full md:w-1/2 font-poppins text-center  md:text-left">
-    <h2 className="text-2xl md:text-3xl text-right font-bold text-dgreen">
+    <h2 className="text-2xl md:text-3xl text-center lg:text-right font-bold text-dgreen">
     Pallet storage
     </h2>
-    <p className="text-gray-600 font-sans mt-2 text-right">
+    <p className="text-gray-600 font-sans mt-2 text-center lg:text-right">
     Pallet storage to stack bulky products in dedicated areas
     </p>
   </div>
