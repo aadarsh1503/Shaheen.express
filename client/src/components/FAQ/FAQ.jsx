@@ -89,7 +89,7 @@ const FAQ = () => {
               Where are Shaheen Express warehouses located at?
               </h3>
               <p className="text-sm text-lgray">
-              For now, our main warehouse is located in Cawang, East Jakarta. In the near future, we are expanding our warehouses to main cities all around Indonesia.
+              For now, our main warehouse is located in Manama, Kingdom of Bahrain. In the near future, we are expanding our warehouses to main cities all around Indonesia.
               </p>
             </div>
 

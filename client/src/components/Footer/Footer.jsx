@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import i1 from "./i1.png";
+import i2 from "./i2.svg";
 import "./Footer.css"
 
 const Footer = () => {
@@ -79,7 +80,7 @@ const Footer = () => {
           >
             <div className="bg-gray-100 rounded-full shadow-md transform group-hover:scale-110 transition-transform duration-300">
               <img
-                src="https://gtl.id/icon_email.svg"
+                src={i2}
                 alt="Email Icon"
                 className="h-8 w-8"
               />

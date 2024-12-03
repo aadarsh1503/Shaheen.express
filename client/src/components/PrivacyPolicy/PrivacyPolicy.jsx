@@ -404,7 +404,7 @@ const PrivacyPolicy = () => {
       </p>
       <br />
       <p>
-        If you have any questions regarding this Privacy Notice or if you wish to request access, deletion, correction, and/or other rights related to your Personal Data, please contact info@shaheen.express.
+        If you have any questions regarding this Privacy Notice or if you wish to request access, deletion, correction, and/or other rights related to your Personal Data, please contact info@shaheen.express
       </p>
       <br />
     </>

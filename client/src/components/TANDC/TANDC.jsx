@@ -6,7 +6,7 @@ const TANDC = () => {
   return (
     <div>
         
-          <div className="bg-dgreen font-sans text-white py-10 px-5">
+          <div className="bg-dgreen font-sans  text-white py-10 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <h1 className="lg:text-7xl text-2xl font-poppins font-bold mb-2">T&C</h1>
@@ -19,7 +19,7 @@ const TANDC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="hidden lg:flex justify-center items-center"
+        className=" lg:flex p-4 justify-center items-center"
       >
         <div>
        <div class="max-w-6xl font-poppins mt-8 leading-relaxed text-gray-700 mb-10 mx-auto">

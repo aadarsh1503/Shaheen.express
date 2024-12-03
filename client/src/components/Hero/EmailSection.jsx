@@ -57,7 +57,7 @@ const EmailSection = () => {
 
               {/* Dropdown */}
               {dropdownOpen && (
-                <div className="absolute mt-2 w-56 bg-white rounded-md shadow-lg">
+                <div className="absolute mt-2 z-50 w-56 bg-white rounded-md shadow-lg">
                   {topics.map((topic, index) => (
                     <a
                       key={index}
