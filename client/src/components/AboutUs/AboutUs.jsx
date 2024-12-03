@@ -1,5 +1,10 @@
 import React from 'react'
-
+import i1 from "./i1.jpg"
+import i2 from "./i2.jpg"
+import i3 from "./i3.jpg"
+import i4 from "./i4.jpg"
+import i5 from "./i5.jpg"
+import i6 from "./i6.jpg"
 import EmailSection from '../Hero/EmailSection'
 
 const AboutUs = () => {
@@ -32,7 +37,7 @@ const AboutUs = () => {
   {/* Left Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpan-indonesia-coverage.b4023544.jpg&w=1920&q=75"
+      src={i1}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
@@ -52,7 +57,7 @@ const AboutUs = () => {
   {/* Right Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhuge-storage.90ba2f16.jpg&w=1920&q=75"
+      src={i2}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
@@ -74,7 +79,7 @@ const AboutUs = () => {
   {/* Left Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fregular-storage.a500bf53.jpg&w=1920&q=75"
+      src={i6}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
@@ -95,7 +100,7 @@ const AboutUs = () => {
   {/* Right Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhigh-value-storage.3a6d1cc8.png&w=1200&q=75"
+      src={i4}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
@@ -117,7 +122,7 @@ const AboutUs = () => {
   {/* Left Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcold-storage.06ae0f22.png&w=1200&q=75"
+      src={i3}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
@@ -139,7 +144,7 @@ const AboutUs = () => {
   {/* Right Side Image */}
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
-      src="https://gtl.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpallet-storage.4fd36ba8.png&w=1200&q=75"
+      src={i5}
       alt="Pan Indonesia coverage"
       className="rounded-lg shadow-lg"
     />
