@@ -38,7 +38,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i1}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
@@ -46,10 +46,10 @@ const AboutUs = () => {
   {/* Right Side Text */}
   <div className="w-full md:w-1/2 text-center md:text-left">
     <h2 className="text-2xl md:text-3xl font-bold text-dgreen">
-      Pan Indonesia Coverage
+      Pan Bahrain Coverage
     </h2>
     <p className="text-gray-600 mt-2">
-      10 warehouses spread across different parts of Indonesia
+      10 warehouses spread across different parts of Bahrain
     </p>
   </div>
 </section>
@@ -58,7 +58,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i2}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
@@ -80,7 +80,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i6}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
@@ -101,7 +101,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i4}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
@@ -123,7 +123,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i3}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
@@ -145,7 +145,7 @@ const AboutUs = () => {
   <div className="flex-shrink-0 w-full md:w-[700px]">
     <img
       src={i5}
-      alt="Pan Indonesia coverage"
+      alt="Pan Bahrain coverage"
       className="rounded-lg shadow-lg"
     />
   </div>
