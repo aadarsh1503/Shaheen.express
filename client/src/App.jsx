@@ -10,6 +10,7 @@ import TANDC from './components/TANDC/TANDC';
 import TrackingForm from './components/TrackingForm/TrackingForm';
 import Task from './components/PrivacyPolicy/Task';
 import ChatWidget from './components/ChatWidget/ChatWidget';
+import ManPower from './components/ManPower/ManPower';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -46,6 +47,8 @@ function App() {
           <Route path="/t&c" element={<TANDC />} />
           <Route path="/tracking-Form" element={<TrackingForm />} />
           <Route path="/privacy" element={<Task />} />
+          <Route path="/manPower" element={<ManPower />} />
+          
         </Routes>
         <Footer />
       </div>
