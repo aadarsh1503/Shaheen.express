@@ -11,6 +11,7 @@ import TrackingForm from './components/TrackingForm/TrackingForm';
 import Task from './components/PrivacyPolicy/Task';
 import ChatWidget from './components/ChatWidget/ChatWidget';
 import ManPower from './components/ManPower/ManPower';
+import SummaryComponent from './components/ManPower/SummaryComponent';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -48,6 +49,8 @@ function App() {
           <Route path="/tracking-Form" element={<TrackingForm />} />
           <Route path="/privacy" element={<Task />} />
           <Route path="/manPower" element={<ManPower />} />
+          <Route path="/summaryComponent" element={<SummaryComponent />} />
+
           
         </Routes>
         <Footer />

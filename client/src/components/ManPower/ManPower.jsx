@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import ExtraServices from "./ExtraServices";
+import Map1 from "./Map1.jpg";
+import SummaryComponent from "./SummaryComponent";
+
+const pickupIcon = new L.Icon({
+  iconUrl: Map1,
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
+
+const dropoffIcon = new L.Icon({
+  iconUrl: "/path-to-your-dropoff-image.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
 const ManPower = () => {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -11,42 +25,43 @@ const ManPower = () => {
   const [pickupCoords, setPickupCoords] = useState(null);
   const [dropoffCoords, setDropoffCoords] = useState(null);
   const [distance, setDistance] = useState(null);
-
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
+  const [submittedData, setSubmittedData] = useState(null);
   const [pickupSuggestions, setPickupSuggestions] = useState([]);
   const [dropoffSuggestions, setDropoffSuggestions] = useState([]);
-  const [debounceTimeout, setDebounceTimeout] = useState(null);
-  const [mapVisible, setMapVisible] = useState(true); // Track map visibility
+  const [selectedDate, setSelectedDate] = useState(""); // State for date
+  const [selectedTime, setSelectedTime] = useState(""); // State for time
 
-  // Toast utility for showing notifications
-  const showToast = (message, type = "warning") => {
-    toast[type](message, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-    });
-  };
+  const vehicles = [
+    { id: 1, label: "Walker", icon: "🚶", charge: "Kwd 30" },
+    { id: 2, label: "Rider", icon: "🏍️", charge: "Kwd 50" },
+    { id: 3, label: "Private Car/Van Driver", icon: "🚘", charge: "Kwd 110" },
+  ];
 
-  // Fetch location suggestions from OpenStreetMap API
+  const navigate = useNavigate();
+
   const fetchSuggestions = async (query, type) => {
     try {
       if (query.length > 1) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // Timeout after 5 seconds
+        
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-            query
-          )}&countrycodes=BH&accept-language=en`
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=BH&accept-language=en`,
+          { signal: controller.signal }
         );
+        
         const data = await response.json();
-  
+        clearTimeout(timeoutId);
+        
         const bahrainSuggestions = data.filter((item) =>
           item.display_name.toLowerCase().includes("bahrain")
         );
-  
+        
         if (bahrainSuggestions.length === 0) {
           showToast("No locations found in Bahrain. Please try again.", "error");
         }
-  
+        
         if (type === "pickup") {
           setPickupSuggestions(bahrainSuggestions);
         } else {
@@ -54,17 +69,24 @@ const ManPower = () => {
         }
       }
     } catch (error) {
-      console.error("Error fetching suggestions:", error);
+      if (error.name === 'AbortError') {
+        console.log('Request timed out');
+      } else {
+        console.error("Error fetching suggestions:", error);
+      }
     }
   };
-  
 
   // Handle debounce for input fields
+  let debounceTimer;
+
   const handleInputChange = (value, type) => {
-    if (value.length > 1) {
-      fetchSuggestions(value, type);
-    }
-    setMapVisible(true); // Ensure the map is visible when editing inputs
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      if (value.length > 1) {
+        fetchSuggestions(value, type);
+      }
+    }, 300); // Waits 300ms after the user stops typing
   };
 
   // Handle suggestion click
@@ -74,20 +96,19 @@ const ManPower = () => {
       lat: parseFloat(suggestion.lat),
       lng: parseFloat(suggestion.lon),
     };
-  
-    const hasSpecificDetails = location.split(",").length > 3; // Check for more detailed address
-  
+
+    const hasSpecificDetails = location.split(",").length > 3;
+
     if (type === "pickup") {
       setPickupLocation(location);
       setPickupCoords(coords);
-      setPickupSuggestions([]); // Clear suggestions
+      setPickupSuggestions([]);
     } else {
       setDropoffLocation(location);
       setDropoffCoords(coords);
-      setDropoffSuggestions([]); // Clear suggestions
+      setDropoffSuggestions([]);
     }
-  
-    // Show toast for incomplete location details
+
     if (!hasSpecificDetails) {
       showToast(
         "Please specify your location with area and street details.",
@@ -95,95 +116,113 @@ const ManPower = () => {
       );
     }
   };
-  <TileLayer
-  url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-  attribution="&copy; OpenStreetMap contributors, Tiles style by OSM France"
-/>
 
+  // Function to convert 24-hour format to 12-hour AM/PM format
+  const convertTo12HourFormat = (time) => {
+    const [hour, minute] = time.split(":");
+    const hours = parseInt(hour);
+    const isPM = hours >= 12;
+    const formattedHour = hours % 12 || 12; // Convert to 12-hour format
+    const formattedTime = `${formattedHour}:${minute} ${isPM ? "PM" : "AM"}`;
+    return formattedTime;
+  };
 
-  // Calculate distance between two coordinates
+  const handleSubmit = () => {
+    if (pickupLocation && dropoffLocation && selectedVehicle && selectedDate && selectedTime) {
+      const selectedVehicleDetails = vehicles.find((v) => v.id === selectedVehicle);
+  
+      const data = {
+        pickupLocation,
+        dropoffLocation,
+        vehicle: {
+          label: selectedVehicleDetails.label,
+          charge: parseFloat(selectedVehicleDetails.charge.replace("Kwd ", "")), // Convert charge to number
+        },
+        distance: parseFloat(distance), // Ensure distance is a number
+        selectedDate,
+        selectedTime: convertTo12HourFormat(selectedTime), // Convert time to AM/PM format
+      };
+  
+      setSubmittedData(data);
+      navigate("/summaryComponent", { state: { submittedData: data } });
+    } else {
+      alert("Please select both pickup and dropoff locations, a vehicle, and a date/time.");
+    }
+  };
+  
+
   useEffect(() => {
     if (pickupCoords && dropoffCoords) {
-        const rad = (x) => (x * Math.PI) / 180;
-        const R = 6371; // Earth's radius in km
-        const dLat = rad(dropoffCoords.lat - pickupCoords.lat);
-        const dLng = rad(dropoffCoords.lng - pickupCoords.lng);
-        const a =
-          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-          Math.cos(rad(pickupCoords.lat)) *
-            Math.cos(rad(dropoffCoords.lat)) *
-            Math.sin(dLng / 2) *
-            Math.sin(dLng / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); // Correctly define c
-        setDistance((R * c).toFixed(2)); // Calculate distance in km
-      }
+      const rad = (x) => (x * Math.PI) / 180;
+      const R = 6371;
+      const dLat = rad(dropoffCoords.lat - pickupCoords.lat);
+      const dLng = rad(dropoffCoords.lng - pickupCoords.lng);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(rad(pickupCoords.lat)) *
+          Math.cos(rad(dropoffCoords.lat)) *
+          Math.sin(dLng / 2) *
+          Math.sin(dLng / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      setDistance((R * c).toFixed(2));
+    }
   }, [pickupCoords, dropoffCoords]);
-
-  // Component to dynamically adjust map bounds
-  const AdjustMapBounds = ({ pickupCoords, dropoffCoords }) => {
-    const map = useMap();
-
-    useEffect(() => {
-        // Show toast for manually entered pickup location
-        if (
-          pickupLocation &&
-          !pickupCoords &&
-          pickupLocation.length > 5 &&
-          !pickupLocation.toLowerCase().includes("bahrain")
-        ) {
-          showToast("Please enter a valid location in Bahrain.", "error");
-        }
-      
-        // Show toast for manually entered dropoff location
-        if (
-          dropoffLocation &&
-          !dropoffCoords &&
-          dropoffLocation.length > 5 &&
-          !dropoffLocation.toLowerCase().includes("bahrain")
-        ) {
-          showToast("Please enter a valid location in Bahrain.", "error");
-        }
-      }, [pickupLocation, dropoffLocation, pickupCoords, dropoffCoords]);
-
-    return null;
-  };
 
   return (
     <div className="flex flex-col lg:flex-row items-center gap-8 p-6 bg-gray-100">
-      {/* Toast Container */}
-
-
       {/* Input Section */}
       <div className="w-full lg:w-1/2 space-y-4">
         <h2 className="text-2xl font-semibold">
           Where should we pick up and drop off your items?
         </h2>
 
+        {/* Date and Time Inputs */}
+        <div className="flex gap-4">
+          {/* Date Input */}
+          <div className="relative w-1/2">
+            <input
+              type="date"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
+          </div>
+
+          {/* Time Input */}
+          <div className="relative w-1/2">
+            <input
+              type="time"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+              value={selectedTime}
+              onChange={(e) => setSelectedTime(e.target.value)}
+            />
+          </div>
+        </div>
+
         {/* Pickup Input */}
         <div className="relative">
           <input
             type="text"
             placeholder="Enter Pickup Location"
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
             value={pickupLocation}
-            onFocus={() => setMapVisible(true)} // Show map on focus
             onChange={(e) => {
               setPickupLocation(e.target.value);
               handleInputChange(e.target.value, "pickup");
             }}
           />
           {pickupSuggestions.length > 0 && (
-            <ul className="absolute left-0 w-full bg-white border border-gray-300 shadow-md max-h-60 overflow-y-auto z-10">
-              {pickupSuggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+            <div className="absolute z-10 w-full bg-white border border-gray-300 mt-1 rounded shadow-lg max-h-60 overflow-y-auto">
+              {pickupSuggestions.map((suggestion) => (
+                <div
+                  key={suggestion.place_id}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
                   onClick={() => handleSuggestionClick(suggestion, "pickup")}
                 >
                   {suggestion.display_name}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
 
@@ -191,58 +230,83 @@ const ManPower = () => {
         <div className="relative">
           <input
             type="text"
-            placeholder="Enter Drop-off Location"
-            className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter Dropoff Location"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
             value={dropoffLocation}
-            onFocus={() => setMapVisible(true)} // Show map on focus
             onChange={(e) => {
               setDropoffLocation(e.target.value);
               handleInputChange(e.target.value, "dropoff");
             }}
           />
           {dropoffSuggestions.length > 0 && (
-            <ul className="absolute left-0 w-full bg-white border border-gray-300 shadow-md max-h-60 overflow-y-auto z-10">
-              {dropoffSuggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+            <div className="absolute z-10 w-full bg-white border border-gray-300 mt-1 rounded shadow-lg max-h-60 overflow-y-auto">
+              {dropoffSuggestions.map((suggestion) => (
+                <div
+                  key={suggestion.place_id}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
                   onClick={() => handleSuggestionClick(suggestion, "dropoff")}
                 >
                   {suggestion.display_name}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
 
-        {/* Distance */}
-        {distance && (
-          <p className="text-lg font-semibold text-green-600">
-            Total Distance: {distance} km
-          </p>
-        )}
-        <ExtraServices />
+        {/* Vehicle Selection */}
+        <div className="grid-cols-3 grid">
+          {vehicles.map((vehicle) => (
+            <div
+              key={vehicle.id}
+              className={`cursor-pointer p-4 hover:text-white border rounded-lg hover:bg-dgreen ${
+                selectedVehicle === vehicle.id ? "bg-red-100" : ""
+              }`}
+              onClick={() => setSelectedVehicle(vehicle.id)}
+            >
+              <div className="flex items-center justify-center text-xl">
+                {vehicle.icon}
+              </div>
+              <p className="text-center ">{vehicle.label}</p>
+              <p className="text-center ">{vehicle.charge}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Submit Button */}
+        <button
+         className="w-full py-3 bg-dgreen text-white hover:text-dgreen hover:ring-2 hover:ring-dgreen font-semibold rounded-lg hover:bg-white"
+
+          onClick={handleSubmit}
+        >
+          Proceed
+        </button>
       </div>
 
       {/* Map Section */}
-      {mapVisible && (
-        <div className="w-full lg:-mt-32 z-0 lg:w-1/2 h-[500px] rounded-lg overflow-hidden">
-         <MapContainer
-  center={[26.2235, 50.5822]} // Default: Bahrain
-  zoom={12}
-  style={{ width: "100%", height: "100%" }}
->
-  <TileLayer
-    url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-    attribution="&copy; OpenStreetMap contributors, Tiles style by OSM France"
-  />
-  {pickupCoords && <Marker position={pickupCoords} />}
-  {dropoffCoords && <Marker position={dropoffCoords} />}
-  <AdjustMapBounds pickupCoords={pickupCoords} dropoffCoords={dropoffCoords} />
-</MapContainer>
-
-        </div>
-      )}
+      <div className="w-full z-0 lg:w-1/2 h-[500px] rounded-lg overflow-hidden">
+        <MapContainer
+          center={[26.2235, 50.5822]}
+          zoom={12}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+            attribution="&copy; OpenStreetMap contributors, Tiles style by OSM France"
+          />
+          {pickupCoords && (
+            <Marker position={pickupCoords} icon={pickupIcon}>
+              <Popup>{pickupLocation}</Popup>
+            </Marker>
+          )}
+          {dropoffCoords && (
+            <Marker position={dropoffCoords} icon={dropoffIcon}>
+              <Popup>{dropoffLocation}</Popup>
+            </Marker>
+          )}
+        </MapContainer>
+      </div>
+      {/* Summary Component */}
+      {submittedData && <SummaryComponent data={submittedData} />}
     </div>
   );
 };
