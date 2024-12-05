@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import i1 from "./i1.jpg";
 import i2 from "./i2.jpg";
@@ -21,6 +21,16 @@ const EmailSection = () => {
   const handleDotClick = (index) => {
     setCurrentImageIndex(index);
   };
+
+  // Automatic slider functionality
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Change image every 3 seconds
+
+    // Cleanup the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, [images.length]);
 
   return (
     <motion.div
@@ -74,20 +84,45 @@ const EmailSection = () => {
 
           {/* Right Side */}
           <div className="w-full md:w-1/2 mt-8 md:mt-0 relative">
-            {/* Image Carousel */}
-            <img
-              src={images[currentImageIndex]}
-              alt={`Slide ${currentImageIndex + 1}`}
-              className="rounded-md w-full h-auto transition-opacity duration-300"
-            />
+            {/* Image Carousel with Slide Animation */}
+            <div className="relative w-full h-full overflow-hidden">
+              <motion.div
+                key={currentImageIndex} // Add key to trigger re-render for animation
+                className="flex transition-all duration-1000 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentImageIndex * 100}%)`,
+                }}
+              >
+                {images.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex-shrink-0 w-full h-auto"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 20,
+                      duration: 0.5,
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Slide ${index + 1}`}
+                      className="w-full h-auto object-cover rounded-md"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
             {/* Dots */}
             <div className="flex justify-center mt-4 space-x-2">
               {images.map((_, index) => (
                 <button
                   key={index}
-                  className={`w-3 h-3 rounded-full ${
-                    currentImageIndex === index ? "bg-dgreen" : "bg-gray-300"
-                  }`}
+                  className={`w-3 h-3 rounded-full ${currentImageIndex === index ? "bg-dgreen" : "bg-gray-300"}`}
                   onClick={() => handleDotClick(index)}
                 ></button>
               ))}

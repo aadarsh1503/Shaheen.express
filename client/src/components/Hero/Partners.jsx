@@ -20,10 +20,10 @@ const Partners = () => {
         <h2 className="text-center text-sm text-dgreen font-bold tracking-wide uppercase">
           Partners
         </h2>
-        <p className="text-center text-black text-2xl font-semibold mb-8 my-4">
+        <p className="text-center text-black  text-2xl font-semibold mb-8 my-4">
           We Work With The Best
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap- justify-items-center items-center max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 justify-items-center items-center max-w-2xl mx-auto">
           {/* Replace the src with your images */}
           <img
             src={a1}

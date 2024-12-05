@@ -112,7 +112,7 @@ const AboutUs = () => {
     High value storage
     </h2>
     <p className="text-gray-600 mt-2 text-center lg:text-right">
-    High value storage to store highly valuable items with 24X7 security
+    High value storage to store highly valuable items with 24x7 security
     </p>
   </div>
 </section>
