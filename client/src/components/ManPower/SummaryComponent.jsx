@@ -13,8 +13,8 @@ const SummaryComponent = () => {
     );
   }
 
-  // Calculate distance-based charge
-  const perKmCharge = 10; // 10 MYR per kilometer
+
+  const perKmCharge = 10; 
   const distanceCharge = submittedData.distance * perKmCharge;
 
   // Calculate total charge
@@ -33,6 +33,15 @@ const SummaryComponent = () => {
               <td className="p-4 text-gray-800">
                 {submittedData.selectedDate} - {submittedData.selectedTime}
               </td>
+              
+            </tr>
+            <tr className="border-b">
+              <th className="p-4 text-gray-600 font-medium">Name</th>
+              <td className="p-4 text-gray-800">{submittedData.name}</td>
+            </tr>
+            <tr className="border-b">
+              <th className="p-4 text-gray-600 font-medium">Phone Number</th>
+              <td className="p-4 text-gray-800">+{submittedData.phoneNumber}</td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Pickup Location</th>
