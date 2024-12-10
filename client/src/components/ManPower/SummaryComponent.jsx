@@ -3,22 +3,30 @@ import { useLocation } from "react-router-dom";
 
 const SummaryComponent = () => {
   const { state } = useLocation(); // Retrieve data from the state passed via navigation
-  const { submittedData } = state || {}; // Destructure submittedData
+  const submittedData = state || {}; // Access the entire submitted data
+  console.log(submittedData);
 
-  if (!submittedData) {
+  // Return a message if no data is available
+  if (!submittedData || Object.keys(submittedData).length === 0) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-lg font-semibold text-gray-600">No data available.</p>
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+        <p className="text-lg font-semibold text-gray-600">
+          No booking data found. Please go back and submit your booking.
+        </p>
       </div>
     );
   }
 
+  const perKmCharge = 10; // Distance charge per kilometer
+  const distance = submittedData.distance || 0; // Default to 0 if distance is undefined
+  const distanceCharge = distance * perKmCharge;
 
-  const perKmCharge = 10; 
-  const distanceCharge = submittedData.distance * perKmCharge;
+  // Handle missing or undefined selectedVehicle and its charge
 
-  // Calculate total charge
-  const totalCharge = submittedData.vehicle.charge + distanceCharge;
+  const totalCharge = submittedData.selectedVehicle.charge + distanceCharge; // Add the charges as numbers
+
+  // Ensure totalCharge is a number
+  const formattedTotalCharge = !isNaN(totalCharge) ? totalCharge.toFixed(2) : "0.00"; // Format to 2 decimal places
 
   return (
     <div className="flex items-center justify-center h-[900px] bg-gray-100">
@@ -29,11 +37,10 @@ const SummaryComponent = () => {
         <table className="w-full text-left border-collapse border border-gray-300">
           <tbody>
             <tr className="border-b">
-              <th className="p-4 text-gray-600 font-medium">Date And Time</th>
+              <th className="p-4 text-gray-600 font-medium">Date and Time</th>
               <td className="p-4 text-gray-800">
                 {submittedData.selectedDate} - {submittedData.selectedTime}
               </td>
-              
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Name</th>
@@ -53,28 +60,35 @@ const SummaryComponent = () => {
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Vehicle</th>
-              <td className="p-4 text-gray-800">{submittedData.vehicle.label}</td>
+              <td className="p-4 text-gray-800">
+                {submittedData.selectedVehicle ? submittedData.selectedVehicle.label : "N/A"}
+              </td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Vehicle Charge</th>
               <td className="p-4 text-gray-800">
-                {submittedData.vehicle.charge.toFixed(2)} KWD
+                {submittedData.selectedVehicle.charge} Kwd
               </td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Distance</th>
-              <td className="p-4 text-gray-800">{submittedData.distance.toFixed(2)} km</td>
+              <td className="p-4 text-gray-800">
+                {distance.toFixed(2)} km
+              </td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Distance Charge</th>
-              <td className="p-4 text-gray-800">{distanceCharge.toFixed(2)} KWD</td>
+              <td className="p-4 text-gray-800"> {distanceCharge.toFixed(2)} Kwd</td>
             </tr>
             <tr>
               <th className="p-4 text-gray-600 font-bold">Total Charge</th>
-              <td className="p-4 text-gray-800 font-bold">{totalCharge.toFixed(2)} KWD</td>
+              <td className="p-4 text-gray-800 font-bold">{formattedTotalCharge} Kwd</td>
             </tr>
           </tbody>
         </table>
+        <div className="text-center mt-4">
+          
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,9 @@ import Task from './components/PrivacyPolicy/Task';
 import ChatWidget from './components/ChatWidget/ChatWidget';
 import ManPower from './components/ManPower/ManPower';
 import SummaryComponent from './components/ManPower/SummaryComponent';
+import HoverLocationMap from './components/HoverLocationMap/HoverLocationMap';
+import ClickLocationMap from './components/HoverLocationMap/HoverLocationMap';
+import GeocodeMap from './components/HoverLocationMap/HoverLocationMap';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -50,6 +53,8 @@ function App() {
           <Route path="/privacy" element={<Task />} />
           <Route path="/manPower" element={<ManPower />} />
           <Route path="/summaryComponent" element={<SummaryComponent />} />
+          <Route path="/map" element={<GeocodeMap />} />
+
 
           
         </Routes>

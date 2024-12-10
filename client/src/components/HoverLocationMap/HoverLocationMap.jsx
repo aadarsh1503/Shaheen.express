@@ -5,9 +5,7 @@ import "react-phone-input-2/lib/style.css";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"; // Import toastify
-
-const ManPower = () => {
+const GeocodeMap = () => {
   const [mapCenter, setMapCenter] = useState({ lat: 26.1800, lng: 50.5577 }); // Bahrain's coordinates// To control visibility of the info window
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
@@ -256,10 +254,45 @@ useEffect(() => {
 
   
   
+const navigate = useNavigate();
 
+  const handleSubmit = () => {
+    if (pickupLocation === dropoffLocation) {
+      alert("Pickup and drop-off locations cannot be the same.");
+      return;
+    }
 
+    if (pickupMarker && dropoffMarker) {
+      const service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix(
+        {
+          origins: [pickupMarker],
+          destinations: [dropoffMarker],
+          travelMode: google.maps.TravelMode.DRIVING,
+        },
+        (response, status) => {
+          if (status === "OK") {
+            const distance = parseFloat(response.rows[0].elements[0].distance.text.replace(" km", ""));
+            const submittedData = {
+              selectedDate,
+              selectedTime,
+              phoneNumber,
+              name,
+              pickupLocation,
+              dropoffLocation,
+              vehicle: selectedVehicle,
+              distance,
+            };
 
-
+            // Navigate to SummaryComponent with data
+            navigate("/summaryComponent", { state: { submittedData } });
+          } else {
+            console.error("Distance Matrix API error:", status);
+          }
+        }
+      );
+    }
+  };
 
   const handleAddToPickup = () => {
     if (pickupLocation !== dropoffLocation) {
@@ -278,54 +311,8 @@ useEffect(() => {
     }
     setShowPopup(false); // Hide the popup after selection
   };
-  const navigate = useNavigate();
+  
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-  
-    // Ensure all required fields are filled
-    if (
-      !selectedDate ||
-      !selectedTime ||
-      !phoneNumber ||
-      !name ||
-      !pickupLocation ||
-      !dropoffLocation ||
-      !distance ||
-      !selectedVehicle
-    ) {
-      toast.error("Please fill in all the fields."); // Show error toast
-      return;
-    }
-  
-    // Find the selected vehicle object from the vehicles array based on selectedVehicle id
-    const vehicle = vehicles.find((vehicle) => vehicle.id === selectedVehicle);
-  
-    // If no vehicle is found, log an error (optional step)
-    if (!vehicle) {
-      toast.error("Selected vehicle not found."); // Show error toast
-      return;
-    }
-  
-    // Extract numeric charge from the vehicle's charge property
-    const numericCharge = parseFloat(vehicle.charge.replace(/[^\d.-]/g, "")); // This removes 'Kwd' and spaces
-  
-    const submittedData = {
-      selectedDate,
-      selectedTime,
-      phoneNumber,
-      name,
-      pickupLocation,
-      dropoffLocation,
-      distance,
-      selectedVehicle: { ...vehicle, charge: numericCharge }, // Store only the numeric charge
-    };
-  
-    console.log("Submitted Data:", submittedData);
-  
-    // Navigate to the SummaryComponent route and pass the data
-    navigate("/summaryComponent", { state: submittedData });
-  };
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading Maps...</div>;
 
@@ -441,11 +428,11 @@ useEffect(() => {
           ))}
         </div>
         <button
-        onClick={handleSubmit}
-        className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-      >
-        Submit Booking
-      </button>
+          onClick={handleSubmit}
+          className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          Submit Booking
+        </button>
 
 
         {submittedData && (
@@ -467,7 +454,7 @@ useEffect(() => {
       
 
       {/* Google Map */}
-      <div className="w-full -mt-20 h-96 relative">
+      <div className="w-full  h-96 relative">
       <GoogleMap
   mapContainerStyle={{ width: '100%', height: '100%' }}
   center={pickupCoordinates || dropoffCoordinates || mapCenter} // Fallback center
@@ -538,4 +525,4 @@ useEffect(() => {
   );
 };
 
-export default ManPower;
+export default GeocodeMap;
