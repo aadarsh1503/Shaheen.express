@@ -48,7 +48,7 @@ const SummaryComponent = () => {
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Phone Number</th>
-              <td className="p-4 text-gray-800">+{submittedData.phoneNumber}</td>
+              <td className="p-4 text-gray-800">{submittedData.phoneNumber}{submittedData.numericPhone1}</td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Pickup Location</th>
@@ -57,6 +57,10 @@ const SummaryComponent = () => {
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Dropoff Location</th>
               <td className="p-4 text-gray-800">{submittedData.dropoffLocation}</td>
+            </tr>
+            <tr className="border-b">
+              <th className="p-4 text-gray-600 font-medium">Dropoff Contact</th>
+              <td className="p-4 text-gray-800">{submittedData.phoneNumber1}{submittedData.numericPhone}</td>
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Vehicle</th>

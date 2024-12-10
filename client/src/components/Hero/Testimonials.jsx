@@ -112,7 +112,7 @@ const Testimonials = () => {
               <div className="text-5xl text-dgreen mt-4 lg:mt-10 ml-0 lg:-ml-56">“</div>
               <p className="text-dgreen font-bold ">{testimonial.name}</p>
               <p className="text-center text-gray-400 font-poppins font-thin text-sm mb-4">{testimonial.Designation}</p>
-              <p className="text-gray-500 max-w-7xl text-">
+              <p className="text-gray-500 text-center max-w-7xl text-">
                 {index === 1 ? testimonial.text : truncateText(testimonial.text)}
               </p>
               <div className="text-5xl text-dgreen ml-0 lg:ml-56 mt-2">”</div>

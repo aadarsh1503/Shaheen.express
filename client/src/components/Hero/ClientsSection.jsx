@@ -16,12 +16,12 @@ const ClientsSection = () => {
     <motion.section
       id="clients"
       className="py-12 items-center"
+      dir="ltr" // Force LTR direction for this section
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
     >
-
       <h2 className="text-center text-sm text-dgreen font-bold tracking-wide uppercase">
         Clients
       </h2>
@@ -29,7 +29,6 @@ const ClientsSection = () => {
         We’re Happy to Grow Together
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 justify-items-center items-center max-w-3xl mx-auto">
-        {/* Replace the src with your images */}
         <img
           src={i5}
           alt="Client 1"

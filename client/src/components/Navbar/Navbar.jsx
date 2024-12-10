@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link for React Router navigation
 import i1 from "./i1.png";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for menu
+import { useDirection  } from '../DirectionContext';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const { direction, toggleDirection } = useDirection();
   const emailOptions = [
     { label: "Customer Care", email: "ask@shaheen.express" },
     { label: "Seller Care", email: "contact@shaheen.express" },
@@ -35,7 +36,7 @@ const Navbar = () => {
               />
             </a>
           </div>
-
+         
           {/* Desktop Menu Items */}
           <div className="hidden md:flex font-semibold items-center space-x-6 text-sm uppercase tracking-wide">
             <Link to="/#services" className="hover:text-gray-200">
@@ -86,6 +87,7 @@ const Navbar = () => {
                 </div>
                 <span className="text-sm font-semibold">EMAIL</span>
               </div>
+              
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
@@ -103,9 +105,13 @@ const Navbar = () => {
                     ))}
                   </ul>
                 </div>
+                
               )}
+              
             </div>
+           
           </div>
+          
 
           {/* Hamburger Menu Icon */}
           <div className="md:hidden">

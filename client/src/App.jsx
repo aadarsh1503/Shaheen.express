@@ -15,6 +15,7 @@ import SummaryComponent from './components/ManPower/SummaryComponent';
 import HoverLocationMap from './components/HoverLocationMap/HoverLocationMap';
 import ClickLocationMap from './components/HoverLocationMap/HoverLocationMap';
 import GeocodeMap from './components/HoverLocationMap/HoverLocationMap';
+import { DirectionProvider } from './components/DirectionContext';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -39,6 +40,7 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
+      <DirectionProvider>
       <ChatWidget />
       <ScrollToTop />
       <div>
@@ -60,6 +62,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
+      </DirectionProvider>
     </Router>
   );
 }

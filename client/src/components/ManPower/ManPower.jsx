@@ -11,7 +11,8 @@ const ManPower = () => {
   const [mapCenter, setMapCenter] = useState({ lat: 26.1800, lng: 50.5577 }); // Bahrain's coordinates// To control visibility of the info window
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("+973");
+  const [phoneNumber1, setPhoneNumber1] = useState("+973");
   const [showPopup, setShowPopup] = useState(false);
   const [name, setName] = useState("");
   const [popupPosition, setPopupPosition] = useState({ lat: 0, lng: 0 }); 
@@ -33,12 +34,24 @@ const [isTypingDropoff, setIsTypingDropoff] = useState(false);
 const [pickupCoordinates, setPickupCoordinates] = useState(null);
 const [dropoffCoordinates, setDropoffCoordinates] = useState(null);
 const [isSettingPickup, setIsSettingPickup] = useState(true); // Default to setting pickup location
+const [numericPhone, setNumericPhone] = useState("");
+const [numericPhone1, setNumericPhone1] = useState("");
 
-const [directionsResponse, setDirectionsResponse] = useState(null);
 const mapRef = useRef(null);
 
 
+const handlePhoneChange = (phone) => {
+  setPhoneNumber1(phone);
 
+  // Extract only the numeric part after the country code
+  
+};
+const handleTelephoneChange = (phone) => {
+  setPhoneNumber(phone);
+
+  // Extract only the numeric part after the country code
+  
+};
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyCcD5ViBCOqfSKm8qn1sxTFmU6PXz9AbBQ",
     libraries: ["geometry", "drawing","places"]
@@ -281,13 +294,17 @@ useEffect(() => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    
     e.preventDefault(); // Prevent the default form submission behavior
   
-    // Ensure all required fields are filled
+    // Ensure all required fields are filled, including phoneNumber1 and numericPhone
     if (
       !selectedDate ||
       !selectedTime ||
       !phoneNumber ||
+      !phoneNumber1 || // Updated to check phoneNumber1
+      !numericPhone || // Check numericPhone
+      !numericPhone1 || // Check numericPhone
       !name ||
       !pickupLocation ||
       !dropoffLocation ||
@@ -310,10 +327,21 @@ useEffect(() => {
     // Extract numeric charge from the vehicle's charge property
     const numericCharge = parseFloat(vehicle.charge.replace(/[^\d.-]/g, "")); // This removes 'Kwd' and spaces
   
+    // Convert selectedTime to 12-hour format with AM/PM if necessary
+    const timeParts = selectedTime.split(":");
+    let hours = parseInt(timeParts[0], 10);
+    const minutes = timeParts[1];
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12; // Convert 0 hours to 12 for AM/PM format
+    const formattedTime = `${hours}:${minutes} ${ampm}`;
+  
     const submittedData = {
       selectedDate,
-      selectedTime,
+      selectedTime: formattedTime, // Add AM/PM format time
       phoneNumber,
+      numericPhone1,
+      phoneNumber1, // Include the country code field
+      numericPhone, // Include the numeric phone field
       name,
       pickupLocation,
       dropoffLocation,
@@ -326,11 +354,12 @@ useEffect(() => {
     // Navigate to the SummaryComponent route and pass the data
     navigate("/summaryComponent", { state: submittedData });
   };
+  
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
-    <div className="flex flex-col lg:flex-row items-center gap-8 p-6 bg-gray-100">
+    <div className="flex font-poppins flex-col lg:flex-row items-center gap-8 p-6 bg-gray-100">
       <ToastContainer />
       <div className="w-full lg:w-1/2 space-y-4">
         <h2 className="text-2xl font-semibold">Where should we pick up and drop off your items?</h2>
@@ -356,13 +385,40 @@ useEffect(() => {
           </div>
         </div>
 
-        <PhoneInput
-          country={"bh"}
-          value={phoneNumber}
-          onChange={(phone) => setPhoneNumber(phone)}
-          inputClass="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
-          placeholder="Enter your phone number"
-        />
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+  {/* Phone Input with Country Code */}
+  <PhoneInput
+    country={"bh"}
+    value={phoneNumber}
+    onChange={handleTelephoneChange}
+    placeholder="Select Country Code"
+    inputStyle={{
+      width: "100%", // Full width within its container
+      height: "40px",
+      border: "1px solid #D1D5DB",
+      color: "#4B5563",
+    }}
+    containerStyle={{
+      flex: "0 0 20%", // Adjust width for container
+    }}
+  />
+
+  {/* Numeric Phone Input */}
+  <input
+    type="text"
+    value={numericPhone1}
+    onChange={(e) => setNumericPhone1(e.target.value)} // Optional manual update
+    placeholder="Enter Phone Number"
+    style={{
+      width: "100%", // Full width within its container
+      height: "40px",
+      border: "1px solid #D1D5DB",
+      color: "#4B5563",
+      paddingLeft: "8px",
+    }}
+  />
+</div>
+
 
         <input
           type="text"
@@ -422,6 +478,40 @@ useEffect(() => {
         </div>
       )}
     </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+  {/* Phone Input with Country Code */}
+  <PhoneInput
+    country={"bh"}
+    value={phoneNumber1}
+    onChange={handlePhoneChange}
+    placeholder="Select Country Code"
+    inputStyle={{
+      width: "100%", // Full width within its container
+      height: "40px",
+      border: "1px solid #D1D5DB",
+      color: "#4B5563",
+    }}
+    containerStyle={{
+      flex: "0 0 20%", // Adjust width for container
+    }}
+  />
+
+  {/* Numeric Phone Input */}
+  <input
+    type="text"
+    value={numericPhone}
+    onChange={(e) => setNumericPhone(e.target.value)} // Optional manual update
+    placeholder="Enter DropOff Phone Number"
+    style={{
+      width: "100%", // Full width within its container
+      height: "40px",
+      border: "1px solid #D1D5DB",
+      color: "#4B5563",
+      paddingLeft: "8px",
+    }}
+  />
+</div>
+
   
         <div className="grid-cols-3 grid">
           {vehicles.map((vehicle) => (
@@ -467,7 +557,7 @@ useEffect(() => {
       
 
       {/* Google Map */}
-      <div className="w-full -mt-10 h-96 relative">
+      <div className="w-full mt-0 lg:-mt-10 h-96 relative">
       <GoogleMap
   mapContainerStyle={{ width: '100%', height: '100%' }}
   center={pickupCoordinates || dropoffCoordinates || mapCenter} // Fallback center
@@ -523,7 +613,7 @@ useEffect(() => {
     )}
   </span>
   <span>
-    {isSettingPickup ? "Set Drop-off" : "Set Pickup"}
+    {isSettingPickup ? "Set Drop-off Location" : "Set Pickup Location"}
   </span>
 </button>
 {distance !== null && (
