@@ -467,7 +467,7 @@ useEffect(() => {
       
 
       {/* Google Map */}
-      <div className="w-full -mt-20 h-96 relative">
+      <div className="w-full -mt-10 h-96 relative">
       <GoogleMap
   mapContainerStyle={{ width: '100%', height: '100%' }}
   center={pickupCoordinates || dropoffCoordinates || mapCenter} // Fallback center
