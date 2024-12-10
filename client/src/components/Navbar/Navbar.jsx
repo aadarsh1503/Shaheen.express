@@ -109,7 +109,13 @@ const Navbar = () => {
               )}
               
             </div>
-           
+            <button
+                onClick={toggleDirection}
+                className="  text-white rounded hover:bg-blue-600"
+            >
+                {direction === 'ltr' ? 'RTL' : 'LTR'}
+            </button> 
+
           </div>
           
 

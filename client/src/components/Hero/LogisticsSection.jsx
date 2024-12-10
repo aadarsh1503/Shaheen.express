@@ -91,7 +91,7 @@ const LogisticsSection = () => {
             className="mx-auto w-16 h-16"
           />
           <h3 className="mt-4 text-lg font-semibold text-gray-600">
-            Same Day Fulfillment and 3-day<br /> Delivery all around Indonesia
+            Same Day Fulfillment and 3-day<br /> Delivery all around Bahrain b
           </h3>
         </motion.div>
 
