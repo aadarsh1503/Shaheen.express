@@ -474,7 +474,7 @@ useEffect(() => {
   zoom={12}
   options={{
     minZoom: 10, // Set a minimum zoom level
-    maxZoom: 12, // Optional: Limit the maximum zoom level
+    maxZoom: 23, // Optional: Limit the maximum zoom level
     padding: { top: 10, left: 0, bottom: 0, right: 0 },
   }}
   onLoad={(map) => {
