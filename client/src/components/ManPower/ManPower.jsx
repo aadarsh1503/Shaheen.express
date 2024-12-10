@@ -442,7 +442,7 @@ useEffect(() => {
         </div>
         <button
         onClick={handleSubmit}
-        className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        className="w-full py-3 bg-dgreen text-white hover:text-dgreen hover:ring-2 hover:ring-dgreen font-semibold rounded-lg hover:bg-white"
       >
         Submit Booking
       </button>
