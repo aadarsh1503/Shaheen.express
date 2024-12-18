@@ -16,6 +16,8 @@ import HoverLocationMap from './components/HoverLocationMap/HoverLocationMap';
 import ClickLocationMap from './components/HoverLocationMap/HoverLocationMap';
 import GeocodeMap from './components/HoverLocationMap/HoverLocationMap';
 import { DirectionProvider } from './components/DirectionContext';
+import LanguageSwitcher from './components/LanguageSwticher/LanguageSwitcher';
+import GlobalLoader from './components/GlobalLoader/GlobalLoader';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -41,10 +43,13 @@ function App() {
   return (
     <Router>
       <DirectionProvider>
+      <LanguageSwitcher />
       <ChatWidget />
       <ScrollToTop />
       <div>
+        
         <Navbar />
+        <GlobalLoader />
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/faq" element={<FAQ />} />

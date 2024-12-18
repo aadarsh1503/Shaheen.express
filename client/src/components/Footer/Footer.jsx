@@ -51,6 +51,7 @@ const Footer = () => {
               { name: "About Us", href: "/aboutUs" },
               { name: "Services", href: "/#services" },
               { name: "Why Us", href: "/#why-us" },
+              { name: "Delivery", href: "/manPower" },
               { name: "FAQ", href: "/faq" },
               { name: "Privacy Policy", href: "/privacy-policy" },
               { name: "Terms and Conditions", href: "/t&c" },

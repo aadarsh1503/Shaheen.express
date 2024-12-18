@@ -359,7 +359,7 @@ useEffect(() => {
   if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
-    <div className="flex font-poppins flex-col lg:flex-row items-center gap-8 p-6 bg-gray-100">
+    <div className="flex font-poppins flex-col lg:flex-row items-center min-h-screen gap-8 p-6 bg-gray-100">
       <ToastContainer />
       <div className="w-full lg:w-1/2 space-y-4">
         <h2 className="text-2xl font-semibold">Where should we pick up and drop off your items?</h2>

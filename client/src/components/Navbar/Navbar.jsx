@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"; // Import Link for React Router navigat
 import i1 from "./i1.png";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for menu
 import { useDirection  } from '../DirectionContext';
+import LanguageSwitcher from "../LanguageSwticher/LanguageSwitcher";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,9 +24,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-dgreen py-10">
+    <div className="">
       <nav className="text-white bg-dgreen fixed top-0 shadow-lg w-full z-50">
-        <div className="container mx-auto flex max-w-6xl items-center justify-between px-6">
+        <div className="container mx-auto flex max-w-7xl items-center justify-between px-6">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
             <a href="/">
@@ -50,6 +51,9 @@ const Navbar = () => {
             </Link>
             <Link to="/#partners" className="hover:text-gray-200">
               Partners
+            </Link>
+            <Link to="/manPower" className="hover:text-gray-200">
+              Delivery
             </Link>
             <Link to="/faq" className="hover:text-gray-200">
               FAQ
@@ -109,13 +113,8 @@ const Navbar = () => {
               )}
               
             </div>
-            <button
-                onClick={toggleDirection}
-                className="  text-white rounded hover:bg-blue-600"
-            >
-                {direction === 'ltr' ? 'RTL' : 'LTR'}
-            </button> 
-
+            
+<LanguageSwitcher />
           </div>
           
 

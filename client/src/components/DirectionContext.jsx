@@ -1,30 +1,43 @@
-// DirectionContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DirectionContext = createContext();
 
 export const DirectionProvider = ({ children }) => {
+    const [language, setLanguage] = useState(() => {
+        return localStorage.getItem('language') || 'en'; // Default language is English
+    });
     const [direction, setDirection] = useState(() => {
-        // Local storage se initial value load karein
-        return localStorage.getItem('direction') || 'ltr';
+        return localStorage.getItem('direction') || 'ltr'; // Default direction is LTR
     });
 
-    const toggleDirection = () => {
-        const newDirection = direction === 'ltr' ? 'rtl' : 'ltr';
+    // Toggle language and direction based on selected language
+    const toggleLanguageAndDirection = (newLanguage) => {
+        setLanguage(newLanguage);
+        localStorage.setItem('language', newLanguage);
+
+        const newDirection = newLanguage === 'ar' ? 'rtl' : 'ltr';
         setDirection(newDirection);
-        localStorage.setItem('direction', newDirection); // Direction persist karein
+        localStorage.setItem('direction', newDirection);
+
+        document.documentElement.setAttribute('dir', newDirection); // Update page direction
+
+        // Trigger Google Translate language change
+        const selectElem = document.querySelector('#google_translate_element select');
+        if (selectElem) {
+            selectElem.value = newLanguage;
+            selectElem.dispatchEvent(new Event('change', { bubbles: true })); // Trigger the event to switch language
+        }
     };
 
     useEffect(() => {
-        // Ensure `dir` attribute document level par update ho
-        document.documentElement.setAttribute('dir', direction);
+        document.documentElement.setAttribute('dir', direction); // Set direction on page load
     }, [direction]);
 
     return (
-        <DirectionContext.Provider value={{ direction, toggleDirection }}>
+        <DirectionContext.Provider value={{ language, direction, toggleLanguageAndDirection }}>
             <div dir={direction}>{children}</div>
         </DirectionContext.Provider>
     );
 };
 
-export const useDirection = () => useContext(DirectionContext);
+export const useDirection = () => useContext(DirectionContext); // Custom hook to access context
