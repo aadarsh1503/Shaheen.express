@@ -37,7 +37,7 @@ const FAQ = () => {
             {/* Item 2 */}
             <div>
               <h3 className="text-18px font-semibold mb-2">
-                How can I get the pricing for Shaheen Expres service?
+                How can I get the pricing for Shaheen Express service?
               </h3>
               <p className="text-sm text-lgray">
                 We are committed to find the best rate tailored to each client’s
@@ -89,7 +89,7 @@ const FAQ = () => {
               Where are Shaheen Express warehouses located at?
               </h3>
               <p className="text-sm text-lgray">
-              For now, our main warehouse is located in Manama, Kingdom of Bahrain. In the near future, we are expanding our warehouses to main cities all around Indonesia.
+              For now, our main warehouse is located in Manama, Kingdom of Bahrain. In the near future, we are expanding our warehouses to main cities all around Bahrain.
               </p>
             </div>
 

@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
     description={
       <>
         <p>
-          This Privacy Notice explains how we, PT Swift Shipment Solutions and/or its affiliates, including but not limited to PT Paket Anak Bangsa and/or PT Swift Logistics Solutions and/or PT Shaheen Express Solusi Niaga ("Shaheen Express"), obtain, collect, store, control, use, process, analyze, correct, update, display, disclose, transfer, reveal, and protect Personal Data processed by Shaheen Express ("Personal Data Processing").
+          This Privacy Notice explains how we, Shaheen Express and/or its affiliates, including but not limited to PT Paket Anak Bangsa and/or PT Swift Logistics Solutions and/or PT Shaheen Express Solusi Niaga ("Shaheen Express"), obtain, collect, store, control, use, process, analyze, correct, update, display, disclose, transfer, reveal, and protect Personal Data processed by Shaheen Express ("Personal Data Processing").
         </p>
         <br />
         <p>
@@ -101,42 +101,42 @@ const PrivacyPolicy = () => {
       <p>
         We process the Personal Data necessary to provide Services as a Data Processor. This Personal Data is received from the party collecting the Personal Data ("Client") and provided to us for the purpose of delivering the Services.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         How Do We Use the Data?
       </p>
       <br />
       <p>
         After we receive Personal Data from our Clients, we use the data to manage and organize, communicate with the sender, fulfill orders for goods, and most importantly, provide the Services.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         Who Do We Share the Data With?
       </p>
       <br />
       <p>
         If necessary, we may share the Personal Data we receive from our Clients with third parties who cooperate with us in providing the Services, such as our logistics partners.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         How Long Do We Retain the Data?
       </p>
       <br />
       <p>
         We process Personal Data in accordance with the instructions from our Clients or as required by applicable laws.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         How Can Data Subjects Exercise Their Rights Over Their Personal Data?
       </p>
       <br />
       <p>
         If a data subject wishes to exercise their rights over their Personal Data, we may direct the data subject to contact the relevant Client. We will fulfill the data subject's request based on the instructions we receive from the relevant Client.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         Contact Us
       </p>
       <br />
       <p>
         If you have any questions, concerns, or complaints, you can contact us through the contact details found in the Contact Us section.
       </p>
-      <p className=" mt-2 font-sans font-semibold">
+      <p className=" mt-8 font-sans font-semibold">
         How Will We Notify You About Changes?
       </p>
       <br />
@@ -195,7 +195,7 @@ const PrivacyPolicy = () => {
         We will process the Personal Data as it is (as is) provided to us. The Client is responsible for verifying and ensuring the accuracy of the Personal Data provided to us.
       </p>
 
-      <p className="font-sans mt-2 font-semibold">
+      <p className="font-sans mt-8 font-semibold">
         3. How We Collect Your Personal Data
       </p>
       <br />
@@ -203,7 +203,7 @@ const PrivacyPolicy = () => {
         The Personal Data we process for the purpose of providing our Services is obtained directly from our Clients. We also collect Personal Data to process inquiries about Service usage or complaints through our website and/or receive it via the customer service email we provide.
       </p>
          
-      <p className="font-sans mt-2 font-semibold">
+      <p className="font-sans mt-8 font-semibold">
         4. How data subjects exercise their rights regarding their data
       </p>
       <br />
@@ -404,8 +404,11 @@ const PrivacyPolicy = () => {
       </p>
       <br />
       <p>
-        If you have any questions regarding this Privacy Notice or if you wish to request access, deletion, correction, and/or other rights related to your Personal Data, please contact info@shaheen.express
-      </p>
+  If you have any questions regarding this Privacy Notice or if you wish to request access, deletion, correction, and/or other rights related to your Personal Data, please contact 
+  <a href="mailto:info@shaheen.express" className="text-dgreen underline cursor-pointer"> info@shaheen.express</a>
+</p>
+
+
       <br />
     </>
   }

@@ -6,7 +6,7 @@ const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   // WhatsApp numbers
-  const supportNumber = "+97333340017"; // Support number
+  const supportNumber = "+973504540485"; // Support number
   const teamNumber = "+97317491444"; // Team number
 
   const toggleChat = () => {

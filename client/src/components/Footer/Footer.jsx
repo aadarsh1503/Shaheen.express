@@ -34,7 +34,7 @@ const Footer = () => {
         {/* Column 2 */}
         <div className="group">
           <h3 className="text-gray-800 font-bold uppercase mb-4 group-hover:text-dgreen transition-colors duration-300">
-            HEADQUARTER
+            HEAD QUARTER
           </h3>
           <p className="group-hover:translate-x-2 transition-transform duration-300">
             Flat 22, Building 661, Block 712, Road 1208, P.O. Box 54121, Manama, Kingdom of Bahrain
@@ -61,7 +61,7 @@ const Footer = () => {
               <li key={index}>
                 <a
                   href={item.href}
-                  className="text-dgreen hover:text-gray-800 hover:underline transition-colors duration-300"
+                  className="text-black  hover:text-dgreen hover:underline transition-colors duration-300"
                 >
                   {item.name}
                 </a>
@@ -86,7 +86,7 @@ const Footer = () => {
                 className="h-8 w-8"
               />
             </div>
-            <span className="text-sm font-semibold text-dgreen group-hover:text-gray-800 transition-colors duration-300">
+            <span className="text-sm font-semibold text-black group-hover:text-gray-800 transition-colors duration-300">
               Email
             </span>
           </div>

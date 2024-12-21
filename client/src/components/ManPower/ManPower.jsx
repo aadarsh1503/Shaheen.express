@@ -366,24 +366,26 @@ useEffect(() => {
 
         {/* Date and Time Inputs */}
         <div className="flex gap-4">
-          <div className="relative w-1/2">
-            <input
-              type="date"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-            />
-          </div>
+  <div className="relative w-1/2">
+    <input
+      type="date"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+      value={selectedDate}
+      onChange={(e) => setSelectedDate(e.target.value)}
+      min={new Date().toISOString().split("T")[0]} // Restrict to today's date and future
+    />
+  </div>
 
-          <div className="relative w-1/2">
-            <input
-              type="time"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
-              value={selectedTime}
-              onChange={(e) => setSelectedTime(e.target.value)}
-            />
-          </div>
-        </div>
+  <div className="relative w-1/2">
+    <input
+      type="time"
+      className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg"
+      value={selectedTime}
+      onChange={(e) => setSelectedTime(e.target.value)}
+    />
+  </div>
+</div>
+
 
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
   {/* Phone Input with Country Code */}
