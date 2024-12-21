@@ -166,6 +166,13 @@ const Navbar = () => {
               Partners
             </Link>
             <Link
+              to="/manPower"
+              className="block px-6 hover:text-gray-200"
+              onClick={toggleMobileMenu}
+            >
+              Delivery
+            </Link>
+            <Link
               to="/faq"
               className="block px-6 hover:text-gray-200"
               onClick={toggleMobileMenu}
