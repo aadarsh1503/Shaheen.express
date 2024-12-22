@@ -19,7 +19,7 @@ const AboutUs = () => {
         </div>
         <div>
         <div className='text-lg max-w-6xl p-4 mt-10 mx-auto '>
-    Shaheen Express strives to evolve the nationwide logistics and fulfillment landscape as part of Shaheen Express - Bahrain's largest technology group. We believe in moving fast, disrupting existing technology and creating a lasting impact for our customers. While doing that, we aim to learn as we evolve to deliver the best possible logistics experience for sellers and buyers everywhere. We have two major divisions within Shaheen Express - Fulfillment and Delivery.
+    Shaheen Express strives to evolve the nationwide logistics and fulfillment landscape as part of Shaheen Express - Bahrain's largest group. We believe in moving fast, disrupting existing technology and creating a lasting impact for our customers. While doing that, we aim to learn as we evolve to deliver the best possible logistics experience for sellers and buyers everywhere. We have two major divisions within Shaheen Express - Fulfillment and Delivery.
     <br />
     <br />Fulfillment - As part of the fulfillment division, we strive towards storing your products with assured QC and customized services across all of our 10 warehouses spread across Bahrain, including Manama, Riffa, Muharraq, Sitra, Zallaq, Hamad Town, Isa Town, and others within the capital region, while the southern and northern governorates (like Jidhafs, A'ali, and Madinat Hamad) outside of Manama.
     <br />

@@ -61,10 +61,11 @@ const handleTelephoneChange = (phone) => {
 
   const [clickedAddress, setClickedAddress] = useState("");
   const vehicles = [
-    { id: 1, label: "Walker", icon: "🚶", charge: "Kwd 30" },
-    { id: 2, label: "Rider", icon: "🏍️", charge: "Kwd 50" },
-    { id: 3, label: "Private Car/Van Driver", icon: "🚘", charge: "Kwd 110" },
+    { id: 1, label: "Bike", icon: "🏍️", charge: "BHD 30" }, // Updated icon
+    { id: 2, label: "Car", icon: "🚗", charge: "BHD 50" },  // Updated icon
+    { id: 3, label: "Van", icon: "🚐", charge: "BHD 110" }, // Updated icon
   ];
+  
 
   const handleMapClick = (event) => {
     const lat = event.latLng.lat();

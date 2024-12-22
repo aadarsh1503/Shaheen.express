@@ -68,7 +68,7 @@ const PrivacyPolicy = () => {
     description={
       <>
         <p>
-          This Privacy Notice explains how we, Shaheen Express and/or its affiliates, including but not limited to PT Paket Anak Bangsa and/or PT Swift Logistics Solutions and/or PT Shaheen Express Solusi Niaga ("Shaheen Express"), obtain, collect, store, control, use, process, analyze, correct, update, display, disclose, transfer, reveal, and protect Personal Data processed by Shaheen Express ("Personal Data Processing").
+          This Privacy Notice explains how we, Shaheen Express and/or its affiliates ("Shaheen Express") obtain, collect, store, control, use, process, analyze, correct, update, display, disclose, transfer, reveal, and protect Personal Data processed by Shaheen Express ("Personal Data Processing").
         </p>
         <br />
         <p>

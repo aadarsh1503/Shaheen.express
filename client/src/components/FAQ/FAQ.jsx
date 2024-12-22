@@ -30,7 +30,7 @@ const FAQ = () => {
               </h3>
               <p className="text-sm text-lgray">
                 We welcome all types of products, both in warehouse and delivery
-                service. As long as it is under permission of Indonesia's law.
+                service. As long as it is under permission of Bahrain's law.
               </p>
             </div>
 

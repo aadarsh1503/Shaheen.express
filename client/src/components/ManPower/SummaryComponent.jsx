@@ -71,7 +71,7 @@ const SummaryComponent = () => {
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Vehicle Charge</th>
               <td className="p-4 text-gray-800">
-                {submittedData.selectedVehicle.charge} Kwd
+                {submittedData.selectedVehicle.charge} BHD
               </td>
             </tr>
             <tr className="border-b">
@@ -82,11 +82,11 @@ const SummaryComponent = () => {
             </tr>
             <tr className="border-b">
               <th className="p-4 text-gray-600 font-medium">Distance Charge</th>
-              <td className="p-4 text-gray-800"> {distanceCharge.toFixed(2)} Kwd</td>
+              <td className="p-4 text-gray-800"> {distanceCharge.toFixed(2)} BHD</td>
             </tr>
             <tr>
               <th className="p-4 text-gray-600 font-bold">Total Charge</th>
-              <td className="p-4 text-gray-800 font-bold">{formattedTotalCharge} Kwd</td>
+              <td className="p-4 text-gray-800 font-bold">{formattedTotalCharge} BHD</td>
             </tr>
           </tbody>
         </table>
