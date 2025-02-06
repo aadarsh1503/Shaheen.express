@@ -82,7 +82,10 @@ const ClientsSection = () => {
     };
 
     return (
-        <section className="py-10 lg:max-w-7xl lg:w-full w-[200px] mx-auto">
+        <section id='partners' className="py-10 lg:max-w-7xl lg:w-full w-[200px] mx-auto">
+            <h2 className='text-white text-5xl  mb-4'>hii</h2>
+            <h2 className='text-white text-5xl  mb-4'>hii</h2>
+    
 <h2 className="text-center text-sm text-dgreen font-bold tracking-wide uppercase">
 Partners
 </h2>
