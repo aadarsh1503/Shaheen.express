@@ -24,6 +24,7 @@ const HomeService = () => {
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
         {/* Fulfillment Card */}
+        <a href="/aboutUs">
         <motion.div
           className="text-center max-w-2xl"
           initial={{ opacity: 0, y: 50 }}
@@ -40,7 +41,8 @@ const HomeService = () => {
             Storing your products with assured QC and customized service
           </p>
         </motion.div>
-
+        </a>
+<a href="/manPower">
         {/* Delivery Card */}
         <motion.div
           className="text-center max-w-2xl"
@@ -58,6 +60,7 @@ const HomeService = () => {
             Ship to your end customers in quickest time and at cheapest price
           </p>
         </motion.div>
+        </a>
       </div>
     </motion.section>
   );

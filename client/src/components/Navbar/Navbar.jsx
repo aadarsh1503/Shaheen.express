@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link to="/#services" className="hover:text-gray-200">
               Services
             </Link>
-            <Link to="/#why-us" className="hover:text-gray-200">
+            <Link to="/#why-us" className="hover:text-gray-200 whitespace-nowrap">
               Why Us
             </Link>
             <Link to="/#clients" className="hover:text-gray-200">
@@ -58,7 +58,7 @@ const Navbar = () => {
             <Link to="/faq" className="hover:text-gray-200">
               FAQ
             </Link>
-            <Link to="/privacy-policy" className="hover:text-gray-200">
+            <Link to="/privacy-policy" className="hover:text-gray-200 whitespace-nowrap">
               Privacy Policy
             </Link>
             <Link to="/T&C" className="hover:text-gray-200">

@@ -134,7 +134,9 @@ const handleTelephoneChange = (phone) => {
     }
   }, [pickupCoordinates, dropoffCoordinates]); // Watch for changes in pickupCoordinates and dropoffCoordinates
   
-  
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
   
   // Toggle between setting pickup or drop-off location
   const toggleLocationSetting = () => {
