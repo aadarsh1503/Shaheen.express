@@ -121,8 +121,9 @@ const Footer = () => {
           className="mx-auto w-32 h-20 mb-4 hover:rotate-6 transition-transform duration-300"
         />
         <p className="hover:text-dgreen transition-colors duration-300">
-          Copyright © 2024 SHAHEEN EXPRESS, All Rights Reserved.
-        </p>
+  Copyright © {new Date().getFullYear()} SHAHEEN EXPRESS, All Rights Reserved.
+</p>
+
       </div>
     </footer>
   );
