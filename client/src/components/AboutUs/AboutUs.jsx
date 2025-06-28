@@ -9,6 +9,7 @@ import EmailSection from '../Hero/EmailSection'
 
 const AboutUs = () => {
   return (
+    // div
     <div>
           <div className="bg-dgreen font-sans text-white py-10 px-5">
       <div className="max-w-6xl mx-auto">
