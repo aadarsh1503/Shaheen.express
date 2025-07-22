@@ -18,6 +18,9 @@ import GeocodeMap from './components/HoverLocationMap/HoverLocationMap';
 import { DirectionProvider } from './components/DirectionContext';
 import LanguageSwitcher from './components/LanguageSwticher/LanguageSwitcher';
 import GlobalLoader from './components/GlobalLoader/GlobalLoader';
+import UserDataProtectionPolicy from './components/UserDataProtectionPolicy/UserDataProtectionPolicy';
+import ReturnAndRefundPolicy from './components/ReturnAndRefundPolicy/ReturnAndRefundPolicy';
+import TermsOfUse from './components/TermsOfUse/TermsOfUse';
 
 function ScrollToTop() {
   const { hash } = useLocation();
@@ -43,7 +46,9 @@ function App() {
   return (
     <Router>
       <DirectionProvider>
+        <div className='lg:hidden hidden'>
       <LanguageSwitcher />
+      </div>
       <ChatWidget />
       <ScrollToTop />
       <div>
@@ -61,6 +66,10 @@ function App() {
           <Route path="/manPower" element={<ManPower />} />
           <Route path="/summaryComponent" element={<SummaryComponent />} />
           <Route path="/map" element={<GeocodeMap />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/return&refund" element={<ReturnAndRefundPolicy />} />
+          <Route path="/user-data-protection" element={<UserDataProtectionPolicy />} />
+
 
 
           

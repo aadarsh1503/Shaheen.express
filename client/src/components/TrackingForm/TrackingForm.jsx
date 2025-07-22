@@ -13,7 +13,7 @@ const TrackingForm = () => {
                  <div className="bg-dgreen font-sans text-white py-10 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <h1 className="lg:text-7xl text-2xl font-poppins font-bold mb-2">Tracking</h1>
+        <h1 className="lg:text-7xl text-2xl mt-6 lg:mt-20 font-poppins font-bold mb-2">Tracking</h1>
         <p className="text-base font-sans mb-12">Track Your Package</p>
         </div>
         </div>

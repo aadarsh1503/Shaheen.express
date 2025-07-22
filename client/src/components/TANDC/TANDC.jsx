@@ -9,7 +9,7 @@ const TANDC = () => {
           <div className="bg-dgreen font-sans  text-white py-10 px-5">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <h1 className="lg:text-7xl text-2xl font-poppins font-bold mb-2">T&C</h1>
+        <h1 className="lg:text-7xl text-2xl mt-6 lg:mt-20 font-poppins font-bold mb-2">T&C</h1>
         <p className="text-base font-sans mb-12">Terms and Conditions</p>
         </div>
        
@@ -22,7 +22,7 @@ const TANDC = () => {
         className=" lg:flex p-4 justify-center items-center"
       >
         <div>
-       <div class="max-w-6xl font-poppins mt-8 leading-relaxed text-gray-700 mb-10 mx-auto">
+       <div class="max-w-6xl  font-poppins mt-8 leading-relaxed text-gray-700 mb-10 mx-auto">
     <h1 class="text-3xl text-dgreen">A. Definitions</h1>
     <br />
     <p>1- <span class="font-extrabold">User</span> refers to the party utilizing Shaheen Express's delivery services.</p>

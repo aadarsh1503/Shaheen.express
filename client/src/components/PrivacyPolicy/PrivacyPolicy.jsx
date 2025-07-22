@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
       {/* Header Section */}
       <div className="bg-dgreen font-sans text-white py-10 px-5">
         <div className="max-w-6xl mx-auto">
-          <h1 className="lg:text-7xl text-2xl font-poppins font-bold mb-2">
+          <h1 className="lg:text-7xl mt-6 lg:mt-20 text-2xl font-poppins font-bold mb-2">
             Privacy Policy
           </h1>
         </div>
