@@ -12,26 +12,7 @@ import i5 from "./i5.jpg";
 import i6 from "./i6.jpg";
 
 // --- Dummy EmailSection (replace with your actual component) ---
-const EmailSection = () => (
-  <div className="bg-slate-900 py-20 px-4">
-    <div className="max-w-4xl mx-auto text-center">
-      <h2 className="text-3xl font-bold text-white mb-4">Let's Build The Future.</h2>
-      <p className="text-slate-400 mb-8">
-        Partner with Shaheen Express and redefine logistics.
-      </p>
-      <div className="flex justify-center">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full max-w-md bg-slate-800 text-white border-slate-700 px-4 py-3 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-red-500"
-        />
-        <button className="bg-red-600 text-white font-bold px-6 py-3 rounded-r-md hover:bg-red-700 transition-colors">
-          Connect
-        </button>
-      </div>
-    </div>
-  </div>
-);
+
 // --- End of Dummy Component ---
 
 const AboutUs = () => {
@@ -109,7 +90,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <EmailSection />
+
     </div>
   );
 };
