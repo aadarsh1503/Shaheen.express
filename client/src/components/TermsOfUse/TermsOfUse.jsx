@@ -24,7 +24,7 @@ const TermsOfUse = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-slate-300">
+            className="text-lg text-white">
             The following terms and conditions govern your use of our services.
           </motion.p>
         </div>
@@ -54,16 +54,16 @@ const TermsOfUse = () => {
 
           <Section title="B. General">
             <p className="mb-4">1- By using Delivery with Shaheen Express, the User understands and agrees to grant Shaheen Express the right and authority to recommend and choose an appropriate Courier for the pick-up and delivery of Goods.</p>
-            <p>2- Users can track the shipping status of Goods via <a href="https://gvs-logistics.vercel.app/tracking-Form" className="text-teal-600 hover:underline">https://gvs-logistics.vercel.app/tracking-Form</a></p>
+            <p>2- Users can track the shipping status of Goods via <a href="https://shaheen.express/tracking-Form" className="text-teal-600 hover:underline">Link</a></p>
           </Section>
 
           <Section title="C. Shipping Terms">
             <p className="mb-4">1- For every item to be shipped, the Courier is entitled to receive information from the Sender, including the recipient's name, complete delivery address, and a clear description of the Goods.</p>
-            <p className="mb-4">2- Delivery with Shaheen Express is available in certain regions in Indonesia with a maximum product weight of 50 kg. The maximum dimensions for packages are 50 cm x 50 cm x 50 cm.</p>
+            <p className="mb-4">2- Delivery with Shaheen Express is available in certain regions in Bahrain with a maximum product weight of 50 kg. The maximum dimensions for packages are 50 cm x 50 cm x 50 cm.</p>
             <p className="mb-4">3- Weight is calculated based on the greater of actual or volumetric weight. The volumetric weight formula is (Length x Width x Height) / 6000.</p>
             <p className="mb-4">4- The Courier responsible for pick-up may differ from the Courier delivering the Goods.</p>
             <p className="mb-4">5- Senders are responsible for adequately packaging Goods. Couriers may refuse to pick up inadequately packaged items.</p>
-            <p className="mb-4">6- Uninsured shipments are eligible for compensation up to 10 times the shipping cost or a maximum of IDR 1,000,000, whichever is lower.</p>
+            <p className="mb-4">6- Uninsured shipments are eligible for compensation up to 10 times the shipping cost or a maximum of BHD 1,000,000, whichever is lower.</p>
           </Section>
 
           <Section title="D. Data Usage">

@@ -17,7 +17,7 @@ const ReturnAndRefundPolicy = () => {
           <h1 className="text-4xl md:text-6xl mt-20  font-bold text-white tracking-tight">
             Return & Refund Policy
           </h1>
-          <p className="text-teal-200 mt-2 text-lg">
+          <p className="text-white mt-2 text-lg">
             Hassle-free returns to ensure your satisfaction.
           </p>
         </motion.div>
